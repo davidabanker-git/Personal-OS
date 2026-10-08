@@ -1,6 +1,6 @@
 # Personal OS: Vision, Decisions, Assumptions
 
-Status: discovery, pre-build plan. Last updated 2026-10-08 (round 4).
+Status: discovery, pre-build plan. Last updated 2026-10-08 (round 5).
 
 This doc consolidates two voice-note sessions plus the follow-up discussion. It is split into the two topics the notes actually contain:
 
@@ -64,7 +64,7 @@ A personal operating system that knows how I work. It proactively watches what I
 | Obsidian | **Personal reflective vault**: thinking patterns, life, mindfulness, thought work, learnings. It's the most private tier, and the AI reads it only through an explicit folder allowlist. |
 | Jev | **Access confirmed.** It's the decision layer for triage, routing and verification (see build plan). |
 | Capture front door | **Slack**, with a personal channel plus a Keystone channel. It uses Open Brain's ready-made `slack-capture` recipe. |
-| Conversational / proactive front door | Decided later, in the proactive-loop phase. Claude Code Channels (which Life Engine relies on) supports Telegram, Discord and iMessage, but not Slack. |
+| Conversational / proactive front door | **Slack is viable end to end, with no always-on computer required:**<br>- Mentioning @Claude in a thread starts a Claude Code cloud session on this repo and posts progress and a summary back to the thread.<br>- Scheduled **routines** run in the cloud (hourly at most often), use connectors, and can post into Slack.<br>- Telegram, Discord or iMessage via Channels remain an alternative for a live, always-on session. |
 | Notion | Stays available as a capture surface. Its content can be extracted into Obsidian, so it's referenceable and linked. |
 | Obsidian | **Explore before committing.** If adopted, the system reads the whole vault, and notes carry a sensitivity tag that limits where their content can be used (see below). |
 
@@ -161,14 +161,12 @@ It's the first skill to build.
 
 ## Open questions for the build plan
 
-1. **Conversational channel** (for the proactive loop): Telegram, iMessage, or a custom Slack bridge?
+1. **Slack spike:** test whether @Claude reliably starts non-coding tasks ("draft follow-ups for X") with our skills and connectors.
 2. **Obsidian trial:** after exploring it, keep it as the personal thinking space or let Notion keep that role?
 3. **Neo4j:** learning project now, or parked behind Supabase graph tables?
 
-### Sensitivity tags (replaces the folder-allowlist idea)
+### Personal content rule (replaces sensitivity tags)
 
-The AI may *read* everything in the vault. Each note carries a tag that controls where its content can show up:
+The AI may read everything. One standing rule in the operating manual covers it: **any business or Keystone output contains only project-relevant details.** Professionalism means my personal details are neither necessary nor appropriate in emails, agreements, proposals or posts.
 
-- `open`: usable anywhere, including drafts that go to other people.
-- `personal`: usable for reflection, planning and briefings to me. Never quoted in anything outbound, such as emails, Keystone docs or posts.
-- `sealed`: never imported into Supabase. Read only during a local session I start inside the vault.
+An optional safeguard: a cheap Jev yes/no check on outbound drafts ("contains personal or non-project details?"), applied before they reach my approval queue.
