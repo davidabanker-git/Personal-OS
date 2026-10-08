@@ -30,7 +30,7 @@ A personal operating system that knows how I work. It proactively watches what I
 | **Context** | Who I am, how I work, priorities, people, rules and habits | Markdown operating manual plus Obsidian as a thinking and viewing surface |
 | **Intelligence** | Triage, classify, prioritize, research, draft | Claude and ChatGPT (existing subscriptions), plus Jev as a candidate fast or cheap decision layer |
 | **Action / Orchestration** | Triggers, scheduled loops, agents that do the work | Claude Code loops and routines; write actions behind approval gates |
-| **Interface** | Where I see and steer it | Tabbed site: quick-capture intake, Today/Week (GTD/PARA views), people, approvals queue |
+| **Interface** | Where I see and steer it. **Minimal, Apple-simple surface; robust underneath.** | Tabbed site: quick-capture intake, Today/Week (GTD/PARA views), people, approvals queue |
 | **Review and learning loop** | Makes it smarter over time | Daily and weekly reviews (voice-friendly); approved decisions become stored rules |
 
 ### Behaviors I want
