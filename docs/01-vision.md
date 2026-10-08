@@ -1,6 +1,6 @@
 # Personal OS: Vision, Decisions, Assumptions
 
-Status: discovery, pre-build plan. Last updated 2026-10-08 (round 3).
+Status: discovery, pre-build plan. Last updated 2026-10-08 (round 4).
 
 This doc consolidates two voice-note sessions plus the follow-up discussion. It is split into the two topics the notes actually contain:
 
@@ -63,7 +63,10 @@ A personal operating system that knows how I work. It proactively watches what I
 | Task layer | **Linear**. It owns task state: status, owner, approvals, and receipts as comments. Supabase stores only links and task events, for pattern detection. |
 | Obsidian | **Personal reflective vault**: thinking patterns, life, mindfulness, thought work, learnings. It's the most private tier, and the AI reads it only through an explicit folder allowlist. |
 | Jev | **Access confirmed.** It's the decision layer for triage, routing and verification (see build plan). |
-| Phone front door | Telegram is the leading option; Slack is still being considered |
+| Capture front door | **Slack**, with a personal channel plus a Keystone channel. It uses Open Brain's ready-made `slack-capture` recipe. |
+| Conversational / proactive front door | Decided later, in the proactive-loop phase. Claude Code Channels (which Life Engine relies on) supports Telegram, Discord and iMessage, but not Slack. |
+| Notion | Stays available as a capture surface. Its content can be extracted into Obsidian, so it's referenceable and linked. |
+| Obsidian | **Explore before committing.** If adopted, the system reads the whole vault, and notes carry a sensitivity tag that limits where their content can be used (see below). |
 
 ### Hidden assumptions and suggested changes
 
@@ -158,7 +161,14 @@ It's the first skill to build.
 
 ## Open questions for the build plan
 
-1. **Phone front door:** Telegram (personal, free, used by Life Engine and Liam Ottley) or Slack (free tier OK; better if Keystone already lives in Slack)?
-2. **Notion's role:** is it still a capture surface, or does it shrink to existing docs now that Obsidian is the personal thinking space?
-3. **Obsidian allowlist:** which vault folders (if any) may sync into Open Brain, e.g. "Learnings" yes, "Journal" no?
-4. **Neo4j:** learning project now, or parked behind Supabase graph tables?
+1. **Conversational channel** (for the proactive loop): Telegram, iMessage, or a custom Slack bridge?
+2. **Obsidian trial:** after exploring it, keep it as the personal thinking space or let Notion keep that role?
+3. **Neo4j:** learning project now, or parked behind Supabase graph tables?
+
+### Sensitivity tags (replaces the folder-allowlist idea)
+
+The AI may *read* everything in the vault. Each note carries a tag that controls where its content can show up:
+
+- `open`: usable anywhere, including drafts that go to other people.
+- `personal`: usable for reflection, planning and briefings to me. Never quoted in anything outbound, such as emails, Keystone docs or posts.
+- `sealed`: never imported into Supabase. Read only during a local session I start inside the vault.
