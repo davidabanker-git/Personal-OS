@@ -1,6 +1,6 @@
 # Personal OS: Vision, Decisions, Assumptions
 
-Status: discovery, pre-build plan. Last updated 2026-10-08.
+Status: discovery, pre-build plan. Last updated 2026-10-08 (round 3).
 
 This doc consolidates two voice-note sessions plus the follow-up discussion. It is split into the two topics the notes actually contain:
 
@@ -60,7 +60,10 @@ A personal operating system that knows how I work. It proactively watches what I
 | Write actions | Behind guardrails and approval gates |
 | 30-day success | Things are organized enough that it can make suggestions and take proactive action |
 | Passive time tracking | **Parked.** Too hard to do well on iPhone. Revisit later. |
-| Notion → Obsidian flow | Wanted: think out loud in Notion, have it sync and organize, then land in the canonical store (exact flow TBD) |
+| Task layer | **Linear**. It owns task state: status, owner, approvals, and receipts as comments. Supabase stores only links and task events, for pattern detection. |
+| Obsidian | **Personal reflective vault**: thinking patterns, life, mindfulness, thought work, learnings. It's the most private tier, and the AI reads it only through an explicit folder allowlist. |
+| Jev | **Access confirmed.** It's the decision layer for triage, routing and verification (see build plan). |
+| Phone front door | Telegram is the leading option; Slack is still being considered |
 
 ### Hidden assumptions and suggested changes
 
@@ -155,8 +158,7 @@ It's the first skill to build.
 
 ## Open questions for the build plan
 
-1. **Task layer:** where do tasks, approvals and receipts live? Options are a Supabase table with my own UI, Notion, or Linear (which Open Engine uses).
-2. **Phone interface:** Telegram bot (the Liam Ottley and Life Engine pattern), the Claude or ChatGPT mobile app with the brain connected over MCP, or both?
-3. **The Notion → Obsidian → Supabase path:** confirm the direction of each hop.
-4. **Jev:** request early access now to test triage, or start with a small LLM and swap later?
-5. **Neo4j:** learning project now, or parked behind Supabase graph tables?
+1. **Phone front door:** Telegram (personal, free, used by Life Engine and Liam Ottley) or Slack (free tier OK; better if Keystone already lives in Slack)?
+2. **Notion's role:** is it still a capture surface, or does it shrink to existing docs now that Obsidian is the personal thinking space?
+3. **Obsidian allowlist:** which vault folders (if any) may sync into Open Brain, e.g. "Learnings" yes, "Journal" no?
+4. **Neo4j:** learning project now, or parked behind Supabase graph tables?
