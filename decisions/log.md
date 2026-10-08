@@ -64,3 +64,23 @@ Approved for read access alongside personal Drive. Needs setup.
 **What:** 3.5 weeks at about 6–8 hours a week. Morning brief and evening reflection start in week 1. The BD workflow is quick and dirty, built as the first `automate-this` run.
 
 **Would change if:** the friction report shows overload. Then cut scope rather than push.
+
+## 2026-10-08: Process-map skill moves to the Keystone build queue
+
+**Why:** it's Keystone work, not OS foundation. `automate-this` keeps a lightweight internal map. The assistant asks during planning when to build the full client version.
+
+## 2026-10-08: Skills live in the repo
+
+**What:** skills go in `.claude/skills/`, with `.agents/skills` symlinked to it for Codex.
+
+**Why:** cloud sessions start from a fresh clone, so local `~/.claude/skills` aren't available. Repo skills travel with every session.
+
+## 2026-10-08: Design principle: minimal surface, robust underneath
+
+**What:** every touchpoint feels Apple-simple: one decision at a time, plain words, and no visible machinery.
+
+## 2026-10-08: The friction review uses the Obsidian vault
+
+**What:** it draws on my growth, mindfulness and thought-work notes to suggest root causes and strategies, citing the note.
+
+**Requires:** the vault must sync into Open Brain. Cloud sessions can't read local files.

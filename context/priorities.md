@@ -15,8 +15,19 @@ As of 2026-10-08. Review quarterly.
 
 3. **Workflows that dramatically increase my output, so the team stays lean.** These come first:
    - **Bizdev pipeline (now):** prospect research, outreach drafts and follow-ups.
-   - **Process-mapping skill (ready before David Lai closes the next deal):** discovery, then a process map, then a build-plan handoff to the developer.
+   - **Process-mapping skill:** queued; see the Keystone build queue below. Ready before David Lai closes the next deal.
    - **Operations runbooks:** built as each process becomes real.
+
+## Keystone build queue
+
+The assistant asks during daily and weekly planning when to build these. Don't build them unasked.
+
+| Item | Why | Trigger or deadline |
+|---|---|---|
+| `process-map` skill (full client version) | Discovery → map → build-plan handoff to the developer | Before David Lai closes the next deal |
+| `bizdev-outreach` (beyond quick-and-dirty) | Research, draft and follow-up at scale | After the week-4 quick version proves useful |
+| `meeting-prep` | Prep for prospect and client calls | When the call volume justifies it |
+| `proposal-assembly`, `wireframe-brief`, ops runbooks | Faster delivery handoffs | As deals close |
 
 ## Daily habits (evolving)
 

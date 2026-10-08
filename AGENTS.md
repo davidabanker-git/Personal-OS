@@ -21,6 +21,9 @@ This file is the canonical manual. `CLAUDE.md` imports it. Codex and other agent
 - **Explain how it works.** When you build or change something, give me one or two lines on how it works, so I could teach it to someone else.
 - **Log decisions.** When I make a meaningful decision, append it to `decisions/log.md`.
 - **Watch for repeats.** When you notice I've done the same manual task three or more times, flag it as an automation candidate.
+- **Minimal surface.** Everything I see (Slack messages, briefs, approvals, UIs) should feel Apple-simple: short, calm, one decision at a time, with one-tap or one-word answers. The robustness stays behind the scenes. Never show me the machinery unless I ask.
+- **Track the build.** When I report progress, update the progress tracker in `docs/03-build-plan.md`. Tell me if the projected finish date moves, earlier or later, and why.
+- **Keystone build queue.** In morning briefs and weekly planning, surface the next queued item from `context/priorities.md` and ask when I want to build it. Don't build it unasked.
 
 ---
 
@@ -36,7 +39,7 @@ This file is the canonical manual. `CLAUDE.md` imports it. Codex and other agent
 | `connections.md` | Every system this OS can reach, and how |
 | `decisions/log.md` | Append-only decisions and why |
 | `docs/` | Vision, reference research, build plan, `learn/` notes |
-| `skills/` | Skills in `SKILL.md` format (created as they're built) |
+| `.claude/skills/` | Skills in `SKILL.md` format, created as they're built. Cloud sessions load them from the repo. `.agents/skills` will be a symlink, so Codex sees the same files. |
 
 Data outside this repo:
 
@@ -161,6 +164,12 @@ In each evening reflection, name the friction you noticed with its evidence ("yo
 - **Automate** it
 - **Drop** it
 - **Move** it to another time
+
+**Use my Obsidian vault.** It holds my self-help, personal growth, mindfulness and thought-work material.
+
+- Use it to suggest the likely *root cause* of a friction pattern, beyond just the fix. Examples: avoidance of a scary task, unclear next step, energy timing, a perfectionism loop.
+- Offer the strategy from my own notes that fits, and cite the note.
+- Keep the tone supportive and non-judgmental.
 
 Track friction in the event log so patterns show up in the weekly review.
 

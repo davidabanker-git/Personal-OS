@@ -4,6 +4,8 @@ Status: draft v1, 2026-10-08. Builds on `01-vision.md` (decisions) and `02-refer
 
 ## Principles for the build
 
+0. **Minimal on the surface, robust underneath.** Every touchpoint should feel Apple-simple: Slack messages, briefs, approvals, any future dashboard. That means one screen, one decision, and plain words. The complexity stays behind the scenes.
+
 1. **One phase at a time.** Each phase ends with a "done when" test. If the test fails, fix it before starting the next phase. This is the Open Stack and Four Cs rule.
 2. **Lowest autonomy that works.** Every workflow starts at L1 (suggests) or L2 (drafts). It moves up a level only after it has proven itself on real work.
 3. **Model-agnostic by construction.** Memory, tasks and skills sit behind open interfaces: MCP, APIs, and `SKILL.md`/`AGENTS.md` files. The orchestrator can change (Claude today, maybe Grok or another later) without a rebuild.
@@ -35,7 +37,7 @@ flowchart LR
   subgraph Work
     LN[Linear: task queue, approvals, receipts]
     OR[Orchestrator: Claude Code cloud sessions + routines]
-    SK[Skills repo: process-map, meeting-prep, outreach...]
+    SK[Skills in repo .claude/skills: automate-this, outreach...]
   end
   subgraph See
     SLO[Slack threads: briefs, receipts, approvals]
@@ -74,11 +76,11 @@ The 7-week plan is squeezed into about 3.5 weeks. The hours are mostly **my** ti
 | Week | Dates | Phases | My hours |
 |---|---|---|---|
 | 1 | Oct 8–11 | **0:** accounts, operating manual, Slack test. **Quick win:** morning brief and evening reflection start immediately, because they only need Calendar and Gmail. | 4–5 |
-| 2 | Oct 12–18 | **1 + 2:** `process-map` and `automate-this` skills (one 45-minute voice interview), Open Brain and Slack capture | 7–8 |
+| 2 | Oct 12–18 | **1 + 2:** `automate-this` skill and the how-I-work voice interview (45 minutes), Open Brain and Slack capture | 6–7 |
 | 3 | Oct 19–25 | **3 + 4:** Jev triage, Linear tasks and receipts, permission tests | 6–7 |
 | 4 | Oct 26–31 | **5:** remaining routines, the first automation-discovery pass, the BD workflow as the first real `automate-this` run | 5–6 |
 
-**Total:** about 22–26 hours, or roughly **6–8 hours a week**, plus 10–15 minutes a day *using* it (brief and reflection).
+**Total:** about 21–25 hours, or roughly **6–7 hours a week**, plus 10–15 minutes a day *using* it (brief and reflection).
 
 **What compression costs:**
 
@@ -92,6 +94,20 @@ The 7-week plan is squeezed into about 3.5 weeks. The hours are mostly **my** ti
 - The morning brief and evening reflection are running daily.
 - The BD workflow works in a quick-and-dirty form.
 - The "two weeks of use" and the first discovered automation land in early November.
+
+## Progress tracker
+
+The assistant updates this table whenever I report progress, and **tells me if the projected finish moves**, earlier or later.
+
+| Phase | Status | Planned | Projected | Notes |
+|---|---|---|---|---|
+| 0: Foundations | in progress | Oct 8–11 | Oct 11 | Manual drafted; accounts and Slack test pending |
+| 1: automate-this + interview | not started | Oct 12–18 | Oct 18 | Process-map moved to the Keystone queue |
+| 2: Memory | not started | Oct 12–18 | Oct 18 | |
+| 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
+| 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |
+| 5: Cadence | not started | Oct 26–31 | Oct 31 | Brief and reflection start in week 1 |
+| **Overall** | | **Oct 31** | **Oct 31** | |
 
 ## Phases
 
@@ -121,27 +137,19 @@ The 7-week plan is squeezed into about 3.5 weeks. The hours are mostly **my** ti
 
 **Learn note:** how a cloud agent session, a repo and connectors fit together.
 
-### Phase 1: The process-map and automate-this skills (week 2)
+### Phase 1: The automate-this skill and how-I-work interview (week 2)
 
 **Build:**
 
-- `skills/process-map/SKILL.md`. It produces:
-  - Trigger, data sources, transformations, decision points and destination
-  - An autonomy level (L0–L4) per step
-  - EAD (eliminate, automate, delegate) and the 60/30/10 split
 - **A voice interview to capture how I work.** It follows the `grill-me` and work-operating-model patterns: rhythms, recurring decisions, dependencies, friction. The answers are saved to `context/`.
-
-- **`skills/automate-this/SKILL.md`, which answers my top pain.** I describe what I'm doing and what a high-quality deliverable looks like. The skill then:
-  1. Runs a quick process map.
+- **`.claude/skills/automate-this/SKILL.md`, which answers my top pain.** I describe what I'm doing and what a high-quality deliverable looks like. The skill then:
+  1. Runs a *lightweight* map: trigger, steps, quality bar, and an autonomy level per step.
   2. Offers 2–3 automation options (maximum 3), each with its autonomy level, effort and tools.
   3. Builds the one I pick: a skill, a routine or a Linear template, filed in the right place.
 
-**Done when:**
+**Done when:** `automate-this` has produced one real automation end to end.
 
-- Three of my real recurring processes are mapped, and one Keystone-style process is mapped as a client would see it.
-- `automate-this` has produced one real automation end to end.
-
-**Learn note:** process mapping and autonomy levels. This doubles as a Keystone runbook.
+**Learn note:** autonomy levels, and how a skill file works.
 
 ### Phase 2: Memory (week 3)
 
@@ -224,12 +232,13 @@ These are Claude Code routines that post to Slack, all at L1–L2 (suggest or dr
 
 ### Phase 6: Keystone skills (ongoing, one per week after Phase 4)
 
-Skills are built in priority order, and each one is mapped with the process-map skill first:
+These sit in the **Keystone build queue** (`context/priorities.md`). The assistant asks during planning when to build each one.
 
-1. `meeting-prep`
-2. `bizdev-outreach` (research, then draft, then the approval queue)
-3. `proposal-assembly`
-4. `wireframe-brief`
+1. `process-map` (full client version): discovery, trigger/sources/transforms/decisions/destination, autonomy levels, EAD and 60/30/10, then a build-plan handoff to the developer. Needed when David Lai closes a deal.
+2. `meeting-prep`
+3. `bizdev-outreach` (research, then draft, then the approval queue; a quick-and-dirty version arrives in week 4)
+4. `proposal-assembly`
+5. `wireframe-brief`
 5. `ops-runbook-writer`
 
 **Portability:** every skill uses the open `SKILL.md` format and must be portable to the company AI stack.
