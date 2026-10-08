@@ -61,12 +61,12 @@ A personal operating system that knows how I work. It proactively watches what I
 | 30-day success | Things are organized enough that it can make suggestions and take proactive action |
 | Passive time tracking | **Parked.** Too hard to do well on iPhone. Revisit later. |
 | Task layer | **Linear**. It owns task state: status, owner, approvals, and receipts as comments. Supabase stores only links and task events, for pattern detection. |
-| Obsidian | **Personal reflective vault**: thinking patterns, life, mindfulness, thought work, learnings. It's the most private tier, and the AI reads it only through an explicit folder allowlist. |
+| Obsidian | **Personal reflective vault**: thinking patterns, life, mindfulness, thought work, learnings. The AI may read all of it; the personal content rule governs where content is reused. |
 | Jev | **Access confirmed.** It's the decision layer for triage, routing and verification (see build plan). |
 | Capture front door | **Slack**, with a personal channel plus a Keystone channel. It uses Open Brain's ready-made `slack-capture` recipe. |
 | Conversational / proactive front door | **Slack is viable end to end, with no always-on computer required:**<br>- Mentioning @Claude in a thread starts a Claude Code cloud session on this repo and posts progress and a summary back to the thread.<br>- Scheduled **routines** run in the cloud (hourly at most often), use connectors, and can post into Slack.<br>- Telegram, Discord or iMessage via Channels remain an alternative for a live, always-on session. |
 | Notion | Stays available as a capture surface. Its content can be extracted into Obsidian, so it's referenceable and linked. |
-| Obsidian | **Explore before committing.** If adopted, the system reads the whole vault, and notes carry a sensitivity tag that limits where their content can be used (see below). |
+| Obsidian | **Explore before committing.** If adopted, the system reads the whole vault, under the personal content rule (see below). |
 
 ### Hidden assumptions and suggested changes
 
