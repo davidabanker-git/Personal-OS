@@ -6,3 +6,4 @@ A voice-first personal operating system: Supabase as the canonical store, shared
 
 - [01 - Vision, decisions, assumptions](docs/01-vision.md)
 - [02 - Reference systems review (Nate B. Jones, Nate Herk, Liam Ottley, Jev, Neo4j)](docs/02-reference-systems.md)
+- [03 - Build plan (phases, build map, tool plan, cost model)](docs/03-build-plan.md)
