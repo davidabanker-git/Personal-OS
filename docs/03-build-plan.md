@@ -265,3 +265,24 @@ Because memory, tasks and skills sit behind open interfaces, another model can t
 **The rule that keeps this possible:** never put a Claude-only feature at the center. Memory goes in Supabase over MCP, tasks in Linear, and instructions in `AGENTS.md` plus `SKILL.md`. Claude-specific pieces stay at the edges and can be replaced: Claude Code in Slack, routines and Channels.
 
 **Caveat:** some Grok surfaces (reportedly the Grokbot desktop app) don't support custom connectors yet. Check the current state before switching.
+
+---
+
+## Model routing
+
+**Default: GPT-6.1 Sol** for most work. **Escalate to Opus 5.5 at high effort** only where it measurably wins. **Jev** handles every pure decision.
+
+| Route to | Work |
+|---|---|
+| **Jev** | Any yes/no, category or score question: triage, routing, "needs approval?", acceptance checks |
+| **Sol (medium/high)** | Summaries, briefs, research, routine drafts and emails, first-pass process maps, data cleanup, well-scoped code fixes |
+| **Opus 5.5 (high)** | UI/UX and visual design (dashboard, wireframes); long autonomous multi-file builds of the OS; client-facing Keystone deliverables where polish matters; ambiguous, high-stakes reasoning (agreements, strategy) |
+| **Escalation rule** | If Sol fails an acceptance check twice, rerun on Opus. Track cost per *accepted* task, not per token. |
+
+**Avoid "max" effort on Opus.** Testers report it can run out of output tokens while still reasoning. "High" is the practical ceiling.
+
+**Plumbing:**
+
+- Claude Code sessions and routines run Claude models. Sol runs through Codex (ChatGPT subscription) or the OpenAI API.
+- The Linear queue is how work gets to the right model: tasks labeled `model:sol` are picked up by a Codex worker, and `model:opus` by Claude Code.
+- This matches the Ringer pattern from Nate's library: an orchestrator plus cheaper workers.

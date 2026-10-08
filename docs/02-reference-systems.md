@@ -188,6 +188,22 @@ A git repo of markdown files:
 | Proactivity | Life Engine loop, digests | Cadence layer (left to you) | Daily briefings, phone agent |
 | Best thing to steal | Shared memory, receipts, Life Engine, CRM, graph-in-Postgres | 3Ms and 4Cs, process map, autonomy levels, `/grill-me`, `/audit`, `/level-up` | Phone and voice front door, KPIs, the commercial model |
 
+## Feature comparison (★ = only in this OS)
+
+| Feature | Nate B. Jones | Nate Herk | Liam Ottley | **This OS** |
+|---|---|---|---|---|
+| Memory | Supabase + vectors | Markdown files | Claude Code workspace | Supabase + vectors + **people/graph + event log** ★ |
+| Method | Skills → Brain → Engine | 3Ms + 4Cs | 5 layers | 4Cs + **process-map skill + autonomy levels** |
+| Tasks | Linear (Open Engine) | — | GTD built in | Linear + receipts + approvals |
+| Phone/chat | Slack/Telegram capture | — | Telegram + Claude Code | **Slack: capture + kick off tasks + briefs** |
+| Proactive | Life Engine (local loop) | Cadence (DIY) | Daily briefings | **Cloud routines, no computer left on** ★ |
+| Finds automations | Automation Discovery | /level-up | Task audit | Event log → weekly evidence-based offers |
+| Fast decisions | — | — | — | **Jev triage with confidence** ★ |
+| Model strategy | Any model via MCP | Claude + Codex | Claude | **Sol default, Opus escalation, Jev decisions, Grok-swappable** ★ |
+| Inner life | Household extensions | — | — | **Obsidian reflective vault** ★ |
+| Business layer | Generic | AIS consulting | Sells AIOS to SMBs | **Keystone skills, portable to the company stack** ★ |
+| Learning built in | — | Curiosity Rule | — | **Explain-it-back note per phase** ★ |
+
 ## Recommended blend (input to the build plan)
 
 - **Operating manual and method (Herk):**
