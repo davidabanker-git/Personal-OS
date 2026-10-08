@@ -58,3 +58,9 @@ Approved for read access alongside personal Drive. Needs setup.
 **Why:** my top pain is quickly turning a described task and quality bar into an organized automation.
 
 **What:** the skill offers 2–3 options; I pick one, and it builds that one.
+
+## 2026-10-08: Compress the build to October 31
+
+**What:** 3.5 weeks at about 6–8 hours a week. Morning brief and evening reflection start in week 1. The BD workflow is quick and dirty, built as the first `automate-this` run.
+
+**Would change if:** the friction report shows overload. Then cut scope rather than push.

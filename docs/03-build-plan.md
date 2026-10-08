@@ -67,6 +67,32 @@ flowchart LR
 
 ---
 
+## Compressed schedule: target October 31
+
+The 7-week plan is squeezed into about 3.5 weeks. The hours are mostly **my** time: accounts, approvals, interviews, testing and the "learn" notes. Agents do the building.
+
+| Week | Dates | Phases | My hours |
+|---|---|---|---|
+| 1 | Oct 8–11 | **0:** accounts, operating manual, Slack test. **Quick win:** morning brief and evening reflection start immediately, because they only need Calendar and Gmail. | 4–5 |
+| 2 | Oct 12–18 | **1 + 2:** `process-map` and `automate-this` skills (one 45-minute voice interview), Open Brain and Slack capture | 7–8 |
+| 3 | Oct 19–25 | **3 + 4:** Jev triage, Linear tasks and receipts, permission tests | 6–7 |
+| 4 | Oct 26–31 | **5:** remaining routines, the first automation-discovery pass, the BD workflow as the first real `automate-this` run | 5–6 |
+
+**Total:** about 22–26 hours, or roughly **6–8 hours a week**, plus 10–15 minutes a day *using* it (brief and reflection).
+
+**What compression costs:**
+
+- Validation windows shrink from 2 weeks to 1. Triage thresholds and brief quality get less tuning before October 31.
+- Phases overlap, so more things are new at once. That's a friction risk, and friction is the thing that killed past systems.
+- Mitigation: the evening friction report runs from week 1. If friction spikes, pause and cut scope rather than push.
+
+**Realistic "done" on October 31:**
+
+- Phases 0–4 are complete.
+- The morning brief and evening reflection are running daily.
+- The BD workflow works in a quick-and-dirty form.
+- The "two weeks of use" and the first discovered automation land in early November.
+
 ## Phases
 
 ### Phase 0: Foundations and the Slack test (week 1)

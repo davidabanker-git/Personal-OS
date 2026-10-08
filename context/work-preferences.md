@@ -24,7 +24,7 @@ All times are US Central.
 
 - Concise, scannable, action first.
 - Drafts go to me for approval before anything is sent.
-- **Voice samples for drafting in my style:** pending. I'll paste one or two real emails, verbatim.
+- **Voice:** see `context/voice.md`.
 
 ## Reviews
 

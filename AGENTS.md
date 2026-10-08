@@ -31,6 +31,7 @@ This file is the canonical manual. `CLAUDE.md` imports it. Codex and other agent
 | `context/about-me.md` | Who I am, my roles, Keystone |
 | `context/priorities.md` | This quarter's priorities and the daily habits list |
 | `context/work-preferences.md` | Schedule rules, deep work, meetings, communication |
+| `context/voice.md` | My writing voice: samples and traits for drafting |
 | `context/taxonomy.md` | Areas, projects, people categories, used for triage |
 | `connections.md` | Every system this OS can reach, and how |
 | `decisions/log.md` | Append-only decisions and why |
