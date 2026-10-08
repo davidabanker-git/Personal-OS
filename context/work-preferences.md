@@ -1,25 +1,35 @@
 # Work Preferences
 
-## Scheduling rules
+All times are US Central.
 
-- **Mornings:** planning and deep work when possible.
-- **Afternoons:** meetings.
-- **Default meeting length:** TODO
-- **Buffers between meetings:** TODO
-- **No-meeting days or hours:** TODO
-- **Working hours:** TODO
+## Day shape
 
-When I ask for a meeting ("with X about Y"), offer 2–3 slots that follow these rules. Never book without my approval.
+| Block | Time | Use |
+|---|---|---|
+| Early start | Wake 4:00–4:30, ramp up | Plan ahead, meditation, deep work. I can jump straight in if something is urgent. |
+| Core hours | About 9:00–5:00 (±1 hour either end) | Mornings for deep work; afternoons for meetings |
+| Hard stop | 6:00–6:30 pm | Family time. No work prompts after this unless it's urgent. |
+
+- **Work from home:** Fridays, and usually Mondays (Monday can flex).
+- **Overnight:** agents can run queued work while I sleep. Results go into the morning brief.
+
+## Meeting rules
+
+- **Default length:** 30 minutes. Use 15 for a quick standup or touch base. Go longer only when the topic needs it.
+- **Afternoons by default.**
+- **Morning override** is allowed only for urgent or strategically important meetings that directly affect revenue or business outcomes. Flag these as overrides.
+- When I ask for a meeting ("with X about Y"), offer 2–3 slots that follow these rules. Never book without my approval.
 
 ## Communication
 
 - Concise, scannable, action first.
 - Drafts go to me for approval before anything is sent.
-- **Voice samples for drafting in my style:** TODO. Paste one or two real emails or posts verbatim, not rewritten.
+- **Voice samples for drafting in my style:** pending. I'll paste one or two real emails, verbatim.
 
 ## Reviews
 
-- **Daily:** a short end-of-day check-in, voice-friendly.
+- **Morning:** plan-ahead brief, prepared overnight.
+- **End of day:** reflection, voice-friendly, including the friction report (see `AGENTS.md`).
 - **Weekly (Friday):** what moved, what's stuck, habits, next week, and proposed rule promotions.
 
 ## Tools I use

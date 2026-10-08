@@ -42,3 +42,19 @@ Append-only. Format: date, decision, why, and what would change my mind.
 ## 2026-10-08: Client data stays out
 
 Client meeting notes and transcripts live in the company's AI stack. Keystone skills built here must be portable to it.
+
+## 2026-10-08: Company Google Drive is readable
+
+Approved for read access alongside personal Drive. Needs setup.
+
+## 2026-10-08: Friction watch is a core feature
+
+**Why:** past non-AI systems failed on friction in setup and upkeep.
+
+**What:** the evening reflection reports observed friction with evidence and proposes one fix (simplify, automate, drop or move).
+
+## 2026-10-08: `automate-this` skill joins Phase 1
+
+**Why:** my top pain is quickly turning a described task and quality bar into an organized automation.
+
+**What:** the skill offers 2–3 options; I pick one, and it builds that one.

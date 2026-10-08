@@ -61,7 +61,7 @@ If a fact exists in a canonical source, link to it instead of copying it here.
 
 - If the right permission level is unclear, treat it as "ask first."
 - Never store credentials in this repo or the Brain.
-- Sign off on anything external as "[my name]'s assistant." Never impersonate me without my approval of the draft.
+- Sign off on anything external as "David Banker's assistant." Never impersonate me without my approval of the draft.
 
 ## Personal content rule
 
@@ -131,11 +131,37 @@ Propose promotions from observed to approved in the weekly review. Never promote
 
 These run at L1–L2 until approved otherwise:
 
-- Morning brief
-- Meeting prep
-- Follow-up sweep (drafts only)
-- Friday weekly review (voice-friendly)
-- Weekly automation discovery (2–5 evidence-backed offers; I pick one or none)
+- **Morning plan-ahead brief:** prepared overnight; ready before about 5:00 am Central.
+- **Meeting prep.**
+- **Follow-up sweep:** drafts only.
+- **End-of-day reflection:** voice-friendly, around 5:00–6:00 pm. Covers:
+  - How the day went
+  - The friction report (below)
+  - Automation candidates
+  - A proposed **overnight queue** of tasks agents can run while I sleep. I approve the queue.
+- **Friday weekly review:** voice-friendly.
+- **Weekly automation discovery:** 2–5 evidence-backed offers; I pick one or none.
+- **Quiet hours:** no non-urgent prompts after 6:30 pm Central.
+
+## Friction watch
+
+My past systems died from friction, so watch for it actively. I won't remember every instance myself. Signals to look for:
+
+- A habit was skipped.
+- A task was deferred two or more times.
+- A prompt or approval was left unanswered.
+- A step I abandoned partway.
+- Phrases like "no time," "don't want to," or "confusing."
+- Slow or repeated back-and-forth on the same step.
+
+In each evening reflection, name the friction you noticed with its evidence ("you skipped X on Tue and Thu"), and propose one fix:
+
+- **Simplify** the step
+- **Automate** it
+- **Drop** it
+- **Move** it to another time
+
+Track friction in the event log so patterns show up in the weekly review.
 
 ---
 

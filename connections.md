@@ -12,7 +12,7 @@ Registry of every system this OS can reach. Update a row whenever a connection i
 | Email | Gmail | mcp | read; **drafts only** | available in Claude sessions |
 | Calendar | Google Calendar | mcp | read; propose only | available in Claude sessions |
 | Files | Google Drive (personal) | mcp | read | available in Claude sessions |
-| Files | Google Drive (company) | mcp | read | TODO, depending on Keystone policy |
+| Files | Google Drive (company) | mcp | read | approved; needs setup |
 | Notes | Notion | mcp | read | available in Claude sessions |
 | Reflections | Obsidian vault | import script | read | trial pending |
 | Decisions | Jev (TypeSafe) | api (`api.typesafe.ai/v1/systemone`) | call | key exists; store as a Supabase secret |

@@ -95,7 +95,7 @@ flowchart LR
 
 **Learn note:** how a cloud agent session, a repo and connectors fit together.
 
-### Phase 1: The process-map skill (week 2)
+### Phase 1: The process-map and automate-this skills (week 2)
 
 **Build:**
 
@@ -105,7 +105,15 @@ flowchart LR
   - EAD (eliminate, automate, delegate) and the 60/30/10 split
 - **A voice interview to capture how I work.** It follows the `grill-me` and work-operating-model patterns: rhythms, recurring decisions, dependencies, friction. The answers are saved to `context/`.
 
-**Done when:** three of my real recurring processes are mapped, and one Keystone-style process is mapped as a client would see it.
+- **`skills/automate-this/SKILL.md`, which answers my top pain.** I describe what I'm doing and what a high-quality deliverable looks like. The skill then:
+  1. Runs a quick process map.
+  2. Offers 2–3 automation options (maximum 3), each with its autonomy level, effort and tools.
+  3. Builds the one I pick: a skill, a routine or a Linear template, filed in the right place.
+
+**Done when:**
+
+- Three of my real recurring processes are mapped, and one Keystone-style process is mapped as a client would see it.
+- `automate-this` has produced one real automation end to end.
 
 **Learn note:** process mapping and autonomy levels. This doubles as a Keystone runbook.
 
@@ -174,9 +182,10 @@ These are Claude Code routines that post to Slack, all at L1–L2 (suggest or dr
 
 | Routine | When | What |
 |---|---|---|
-| Morning brief | Weekdays, early | Calendar, top Linear tasks, people I'm meeting (from the Brain), habit nudges, deep-work block check |
+| Morning brief | Weekdays, ready by ~5 am Central | Calendar, top Linear tasks, people I'm meeting (from the Brain), habit nudges, deep-work block check |
 | Meeting prep | Hourly sweep | For meetings in the next 2 hours: history, open loops, a suggested agenda |
 | Follow-up sweep | Afternoon | Gmail commitments ledger: replies I owe and promises made. **Drafts only.** |
+| Evening reflection | Workdays, ~5–6 pm | A voice-friendly check-in covering:<br>- How the day went<br>- The **friction report**, with evidence<br>- Automation candidates<br>- A proposed **overnight queue** for agents |
 | Weekly review | Friday | A voice-friendly summary: what moved, what's stuck, habits, next week's plan |
 | Automation discovery | Weekly | Reads the event log for tasks repeated three or more times, then offers 2–5 automations with evidence (`/level-up` style). I pick one to build. |
 

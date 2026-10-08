@@ -1,42 +1,33 @@
 # About Me
 
-> Items marked **TODO** need my answers. Dictate them; rough is fine.
-
 ## Identity
 
-- **Name / how to sign drafts:** TODO
-- **Location / time zone:** TODO
+- **Name:** David Banker. Sign drafts as "David Banker"; sign assistant-sent items as "David Banker's assistant".
+- **Location:** northwest Chicago suburbs. **Time zone:** US Central (America/Chicago).
 - **Phone:** iPhone. Voice-first: I dictate while driving or walking.
 
-## Roles
+## Keystone: my role
 
-### Keystone
+I keep the team lean by building workflows that multiply my output. My areas, now and evolving:
 
-My work at Keystone covers:
+- **Business development and networking (now):** bring deals and projects into the company.
+- **Consultative sales:** front-end conversations with prospects.
+- **Process mapping and handoff:** map the client's process, then hand build plans to the developer.
+  - David Lai wants me to own process mapping when he closes a deal.
+- **Operations (growing):** company processes as they're needed, scaling as more contracts get signed.
+- **Connective tissue:** problem solver between internal teams and the subject-matter experts who win deals in their industries.
 
-- Outreach, marketing and business development
-- Consultative sales
-- Business analysis
-- Process analysis and process mapping
-- Wireframing
-- Light workflow builds
-- Operations involvement
+Keystone has its own AI stack. Client data and client meeting transcripts live there, not here. The company Google Drive **may** be read by this OS.
 
-To fill in:
+## Personal
 
-- **What Keystone is / my title:** TODO
-- **Who I serve (clients, ICP):** TODO
-- **Company AI stack:** Keystone has its own AI tooling. Client data and client meeting transcripts live there, not here.
+- **Life areas:** family (evenings are family time), meditation and mindfulness, thought work, learning, health.
+- **History:** I've built non-AI "operating systems" before. They failed on friction, in setup and in upkeep. Spotting friction is a first-class job of this OS (see `AGENTS.md` → Friction watch).
 
-### Personal
+## Top pain
 
-- **Life areas that matter most:** TODO, e.g. health, family, mindfulness and thought work, learning
-- **Mindfulness and thought-work practices:** TODO
+**Quickly building things that make my life easier.** What I want: describe what I'm doing and what a high-quality deliverable looks like, get 2–3 options to automate it (max 3), pick one, and have it built so it stays organized within this system. → This is the `automate-this` skill (build plan, Phase 1).
 
 ## What I'm building
 
 This Personal OS. It's also my lab for learning the stack well enough to teach it and reuse it for Keystone. See `docs/01-vision.md`.
-
-## Top pain right now
-
-TODO: the one recurring thing that eats my week.
