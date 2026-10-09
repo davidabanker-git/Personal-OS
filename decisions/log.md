@@ -84,3 +84,9 @@ Approved for read access alongside personal Drive. Needs setup.
 **What:** it draws on my growth, mindfulness and thought-work notes to suggest root causes and strategies, citing the note.
 
 **Requires:** the vault must sync into Open Brain. Cloud sessions can't read local files.
+
+## 2026-10-12: The assistant offers to do setup itself
+
+**What:** before handing me a setup step, the assistant checks for a connector, browser or computer use, offers to do it, and asks for approval. I handle only passwords, verification codes, terms and payment.
+
+**Applies:** to Claude Code and Codex via `AGENTS.md`. Cowork and claude.ai chats need the same line in my claude.ai profile preferences.
