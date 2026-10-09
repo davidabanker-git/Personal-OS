@@ -85,7 +85,7 @@ Approved for read access alongside personal Drive. Needs setup.
 
 **Requires:** the vault must sync into Open Brain. Cloud sessions can't read local files.
 
-## 2026-10-12: The assistant offers to do setup itself
+## 2026-10-09: The assistant offers to do setup itself
 
 **What:** before handing me a setup step, the assistant checks for a connector, browser or computer use, offers to do it, and asks for approval. I handle only passwords, verification codes, terms and payment.
 
