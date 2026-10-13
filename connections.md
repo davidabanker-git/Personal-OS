@@ -6,7 +6,7 @@ Registry of every system this OS can reach. Update a row whenever a connection i
 
 | Domain | Tool | Mechanism | Access | Last verified |
 |---|---|---|---|---|
-| Memory | Open Brain (Supabase project `personal-os`, ref `omotqffpafzzmwhezgki`, us-east-2) | mcp | read/write | verified 2026-10-13 (ACTIVE_HEALTHY); schema not yet built |
+| Memory | Open Brain (Supabase project `personal-os`, ref `omotqffpafzzmwhezgki`, us-east-2) | mcp | read/write | schema live 2026-10-13 (thoughts, CRM, graph, events); MCP function not yet deployed |
 | Tasks | Linear (team `DAV`) | mcp / api | read/write | verified 2026-10-13 |
 | Chat front door | Slack (`#personal`, `#keystone`) | capture function + Claude Code in Slack | write (capture) | channels verified 2026-10-13; capture function not yet built |
 | Email | Gmail | mcp | read; **drafts only** | available in Claude sessions |

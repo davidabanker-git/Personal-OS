@@ -96,3 +96,11 @@ Approved for read access alongside personal Drive. Needs setup.
 **What:** operating manual, Supabase `personal-os`, Linear team `DAV`, Slack `#personal` and `#keystone`, OpenRouter and TypeSafe keys are all in place and verified from a cloud session. Finished two days after plan, one day ahead of the last projection.
 
 **Next:** Phases 1 and 2 (`automate-this` + how-I-work interview, Open Brain + Slack capture), target Oct 18. Overall finish stays Oct 31.
+
+## 2026-10-13: Open Brain schema follows OB1, hardened
+
+**What:** the `thoughts`, CRM and graph tables use OB1's exact names and columns, so OB1's MCP server and extensions run unmodified. Changes from upstream: every function is callable only by the server, and the event log can't be edited or deleted.
+
+**Why:** reusing OB1 means less custom code to maintain, and the lockdown keeps the public API key from reaching memory.
+
+**Would change if:** OB1's schema drifts far enough that tracking it costs more than owning ours.
