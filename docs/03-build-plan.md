@@ -106,7 +106,9 @@ The assistant updates this table whenever I report progress, and **tells me if t
 | 2: Memory | in progress | Oct 12–18 | Oct 18 | Schema and MCP function live Oct 13. Next: secrets (David), connect Claude + ChatGPT, two-tool test, Slack capture |
 | 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
 | 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |
-| 5: Cadence | not started | Oct 26–31 | Oct 31 | Brief and reflection start in week 1 |
+| 5: Cadence | not started | Oct 26–31 | Oct 31 | Morning brief pulled forward: it replaces the 30–60 min planning sweep |
+| 5b: Agent team | not started | Nov | Nov | After Phase 4; Linear is the handoff layer |
+| Wiki: Obsidian + LLM wiki | not started | parallel | Nov | `nvk/llm-wiki` plugin; vault in a private GitHub repo |
 | **Overall** | | **Oct 31** | **Oct 31** | |
 
 ## Phases
@@ -243,10 +245,34 @@ These sit in the **Keystone build queue** (`context/priorities.md`). The assista
 
 **Portability:** every skill uses the open `SKILL.md` format and must be portable to the company AI stack.
 
-### Exploration track (parallel, low effort)
+### Phase 5b: Agent team (after Phase 4)
 
-- **Obsidian trial.** Two weeks of daily use for reflection and learnings. Do a one-time import of Notion exports to see how linked notes feel.
-- **If Obsidian is kept:** use the OB1 `obsidian-vault-import` recipe. Run it on a schedule, deduplicated by content fingerprint, so notes become searchable in the Brain.
+Dedicated agents, each with one job and the model that fits it. The orchestrator hands work off through Linear tasks, so every handoff has a record and a receipt. Agents don't hand work off through side conversations.
+
+| Agent | Job | Model |
+|---|---|---|
+| Chief of staff (orchestrator) | Plans the day, routes tasks, writes briefs, asks me for judgment | Opus (high) |
+| Researcher | Prospect and company research, lead scores | Sol |
+| Outreach writer | First messages and follow-ups in my voice; drafts only | Sol, with Opus for polish |
+| Triage | Files each capture, with a confidence score | Jev |
+| Librarian | Maintains the LLM wiki: ingest, compile, lint | Sol (Codex) |
+| Builder | Builds and fixes the OS itself: skills, functions, routines | Opus (Claude Code) |
+
+- **How:** Claude Code subagents in `.claude/agents/<name>.md` (model, tools and instructions per agent), mirrored for Codex. Shared state lives in the repo, the Brain and Linear, so any app can pick up the work.
+- **Rule:** start with 2–3 agents (chief of staff, researcher, outreach writer). Add one only when `automate-this` or the weekly discovery pass shows a repeated job that needs it.
+- **Done when:** the chief of staff routes one real task to the researcher, then to the outreach writer, and returns one approval to me, with receipts in Linear.
+
+### Wiki track: Obsidian + LLM wiki (parallel)
+
+- **What:** the [`nvk/llm-wiki`](https://github.com/nvk/llm-wiki) plugin, built on Karpathy's LLM wiki idea. Raw notes and sources go in. An agent compiles them into linked, synthesized articles, with indexes and lint checks. Obsidian is the viewer.
+- **Where:** a private GitHub repo (`personal-wiki`) holds the wiki hub. It syncs to Mac and iPhone through Obsidian's Git plugin, and cloud sessions clone it, so agents can read and update it from anywhere.
+- **First topics:**
+  - growth, mindfulness and thought work (feeds the friction report's root-cause step)
+  - GTM engineering and bizdev
+  - Keystone learning
+- **Brain link:** wiki articles stay in Git. A scheduled job captures article summaries into the Brain, so search covers both.
+- **Privacy:** session-capture hooks stay off until reviewed. Client data stays out (personal content rule).
+- **Done when:** one topic is compiled from real notes, opens in Obsidian on my phone, and a query from a cloud session cites it.
 
 ### Later or parked
 

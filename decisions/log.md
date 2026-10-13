@@ -104,3 +104,13 @@ Approved for read access alongside personal Drive. Needs setup.
 **Why:** reusing OB1 means less custom code to maintain, and the lockdown keeps the public API key from reaching memory.
 
 **Would change if:** OB1's schema drifts far enough that tracking it costs more than owning ours.
+
+## 2026-10-13: Dedicated agent team and LLM wiki join the roadmap
+
+**What:**
+- Phase 5b adds role-based agents: chief of staff, researcher, outreach writer, triage, librarian and builder. Each gets the model that fits its job, and handoffs go through Linear.
+- The Obsidian trial becomes a wiki track built on `nvk/llm-wiki` (Karpathy's LLM wiki pattern). The vault lives in a private GitHub repo, so cloud agents can maintain it.
+
+**Why:** agents with one job each are easier to tune and cheaper to run, and Linear handoffs leave receipts. The wiki turns scattered notes into linked knowledge that agents and I can both use.
+
+**Would change if:** Linear handoffs prove too slow for agent-to-agent work, or the plugin's footprint outweighs its value. A simpler fallback is a plain markdown vault plus OB1's Obsidian import.
