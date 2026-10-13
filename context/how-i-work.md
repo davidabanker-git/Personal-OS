@@ -2,7 +2,7 @@
 
 From the how-I-work interview (started 2026-10-13). `(confirmed)` = I said it; `(synthesized)` = abstracted from my examples and approved.
 
-**Next layer:** recurring decisions
+**Next layer:** dependencies
 
 ## 1. Operating rhythms
 
@@ -43,6 +43,29 @@ From the how-I-work interview (started 2026-10-13). `(confirmed)` = I said it; `
 **Who I deal with** (confirmed)
 - Keystone: David Lai (frequent ad hoc calls or Zooms, often after 5), Ben Seeley, Austin Linney.
 - Tommy Flynn: potential deal-sourcing partner on a referral split. Connected through Boulder Ridge Country Club in Algonquin; owns multifamily properties.
+
+## 2. Recurring decisions
+
+**Where my Keystone time goes next** (synthesized, approved)
+- The question I keep facing: conversations vs. building agents vs. learning.
+- **Rule, in priority order:**
+  1. Live deals and anyone waiting on me.
+  2. Outreach to my short list of contacts.
+  3. In the gaps while I wait on replies: build GTM and bizdev workflows that produce warm conversations beyond my network, and build this OS (clarity on the next best thing, and follow-through).
+- Building never replaces real deal flow.
+- Why: I'm not paid yet, and deal revenue is the fastest path to income. Longer term, I want to stay integral to Keystone on the way to a significant founder's stake (20–40%).
+- Learning (for example, the GTM engineering course) counts when it feeds outreach or my ability to talk solutions with clients.
+
+**Current revenue paths** (confirmed)
+- Austin Linney: a super-connector with 3–4 sizable deals in the pipeline; I get 5% of that deal flow. Waiting on the builds (next few months).
+- Tommy Flynn: has a few connections; I close those deals and Tommy gets a referral fee. Starting soon.
+- My short list: contacts I still need to reach out to.
+
+**Lead scoring** (confirmed)
+- Every lead gets a score of low, average or high.
+- Based on the dollar value of the problems they need solved, weighted toward pain they already know about and want to pay to fix.
+- Includes follow-on work: a good first project often opens up the rest of their business.
+- The score evolves: initial context, then AI research, then process mapping and consultative-sales conversations.
 
 ## Automation candidates
 
