@@ -2,7 +2,7 @@
 
 From the how-I-work interview (started 2026-10-13). `(confirmed)` = I said it; `(synthesized)` = abstracted from my examples and approved.
 
-**Status:** all five layers saved 2026-10-13; close-out pending
+**Status:** complete 2026-10-13. Re-run quarterly, or when the day job or Keystone role changes.
 
 ## 1. Operating rhythms
 
@@ -103,6 +103,7 @@ _Current state as of 2026-10-13. These change as onboarding finishes, so refresh
 ## Close-out notes
 
 - **Keystone meeting slots** (confirmed): WFH days, then early mornings, then drive-time calls, then about 4 pm on office days. Applied to `work-preferences.md`.
+- **Meditation slot** (confirmed, experiment): after the post-workout shower, or in the car at the end of the drive home, before going in. Applied to `priorities.md`.
 
 ## Automation candidates
 

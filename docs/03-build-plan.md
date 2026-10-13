@@ -102,7 +102,7 @@ The assistant updates this table whenever I report progress, and **tells me if t
 | Phase | Status | Planned | Projected | Notes |
 |---|---|---|---|---|
 | 0: Foundations | **done** Oct 13 | Oct 8–11 | Oct 13 | Manual, Supabase, Linear (team DAV), Slack `#personal`/`#keystone`, OpenRouter and TypeSafe keys all in place; Slack test reported done |
-| 1: automate-this + interview | in progress | Oct 12–18 | Oct 18 | Both skills drafted Oct 13; interview runs from the car; first real `automate-this` run pending |
+| 1: automate-this + interview | in progress | Oct 12–18 | Oct 18 | Both skills built and interview done Oct 13 (`context/how-i-work.md`); first real `automate-this` run pending |
 | 2: Memory | in progress | Oct 12–18 | Oct 18 | Schema and MCP function live Oct 13. Next: secrets (David), connect Claude + ChatGPT, two-tool test, Slack capture |
 | 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
 | 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |

@@ -41,6 +41,7 @@ This list is the yardstick for "days lived in a goal- and values-aligned way." B
    - What could be automated
    - What agents can work on overnight
 3. **Meditate.** Every workday at minimum.
+   - Experimenting with two slots: right after the post-workout shower, or in the car at the end of the drive home, before going inside.
 4. **Maintain the OS.** As streamlined as possible: voice sessions, plus approving or rejecting proposals.
 5. **Chop wood, carry water.** Do today's 1–2 highest-leverage Keystone tasks, especially the boring or scary ones. Consistency is the point.
 
