@@ -101,9 +101,9 @@ The assistant updates this table whenever I report progress, and **tells me if t
 
 | Phase | Status | Planned | Projected | Notes |
 |---|---|---|---|---|
-| 0: Foundations | in progress | Oct 8–11 | Oct 14 | Manual drafted; Supabase project created Oct 13; Linear, Slack, keys pending |
-| 1: automate-this + interview | not started | Oct 12–18 | Oct 18 | Process-map moved to the Keystone queue |
-| 2: Memory | not started | Oct 12–18 | Oct 18 | |
+| 0: Foundations | **done** Oct 13 | Oct 8–11 | Oct 13 | Manual, Supabase, Linear (team DAV), Slack `#personal`/`#keystone`, OpenRouter and TypeSafe keys all in place; Slack test reported done |
+| 1: automate-this + interview | next | Oct 12–18 | Oct 18 | Process-map moved to the Keystone queue |
+| 2: Memory | next | Oct 12–18 | Oct 18 | |
 | 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
 | 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |
 | 5: Cadence | not started | Oct 26–31 | Oct 31 | Brief and reflection start in week 1 |

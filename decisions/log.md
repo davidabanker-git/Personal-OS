@@ -90,3 +90,9 @@ Approved for read access alongside personal Drive. Needs setup.
 **What:** before handing me a setup step, the assistant checks for a connector, browser or computer use, offers to do it, and asks for approval. I handle only passwords, verification codes, terms and payment.
 
 **Applies:** to Claude Code and Codex via `AGENTS.md`. Cowork and claude.ai chats need the same line in my claude.ai profile preferences.
+
+## 2026-10-13: Phase 0 complete
+
+**What:** operating manual, Supabase `personal-os`, Linear team `DAV`, Slack `#personal` and `#keystone`, OpenRouter and TypeSafe keys are all in place and verified from a cloud session. Finished two days after plan, one day ahead of the last projection.
+
+**Next:** Phases 1 and 2 (`automate-this` + how-I-work interview, Open Brain + Slack capture), target Oct 18. Overall finish stays Oct 31.
