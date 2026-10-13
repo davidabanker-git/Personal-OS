@@ -2,7 +2,7 @@
 
 From the how-I-work interview (started 2026-10-13). `(confirmed)` = I said it; `(synthesized)` = abstracted from my examples and approved.
 
-**Next layer:** dependencies
+**Next layer:** institutional knowledge
 
 ## 1. Operating rhythms
 
@@ -66,6 +66,18 @@ From the how-I-work interview (started 2026-10-13). `(confirmed)` = I said it; `
 - Based on the dollar value of the problems they need solved, weighted toward pain they already know about and want to pay to fix.
 - Includes follow-on work: a good first project often opens up the rest of their business.
 - The score evolves: initial context, then AI research, then process mapping and consultative-sales conversations.
+
+## 3. Dependencies
+
+_Current state as of 2026-10-13. These change as onboarding finishes, so refresh in the weekly review._ (confirmed)
+
+**I'm waiting on**
+- **David Lai:** onboarding and access to the Keystone Spine, the core operating and building system with display interfaces, including the pipeline. That includes its agentic research and process-mapping tools.
+  - Blocks: research and process mapping with Daniel Coffeen (a former colleague; potential lead), and operations work beyond business development.
+- **Slow by nature:** Austin Linney's deals (depend on the builds; months) and Tommy Flynn's outreach (starting soon).
+
+**Waiting on me**
+- **David Lai:** for me to schedule a session to walk through the research and process-mapping tools together, so I can run that process myself soon. Open loop.
 
 ## Automation candidates
 
