@@ -8,7 +8,7 @@ Registry of every system this OS can reach. Update a row whenever a connection i
 |---|---|---|---|---|
 | Memory | Open Brain (Supabase project `personal-os`, ref `omotqffpafzzmwhezgki`, us-east-2) | mcp | read/write | schema live 2026-10-13; MCP function `open-brain-mcp` deployed (fails closed until secrets are set) |
 | Tasks | Linear (team `DAV`) | mcp / api | read/write | verified 2026-10-13 |
-| Chat front door | Slack (`#personal`, `#keystone`) | capture function + Claude Code in Slack | write (capture) | channels verified 2026-10-13; capture function not yet built |
+| Chat front door | Slack (`#personal`, `#keystone`) | capture function + Claude Code in Slack | write (capture) | channels verified; `slack-capture` function deployed 2026-10-13 (signature-verified); Slack app not yet created |
 | Email | Gmail | mcp | read; **drafts only** | available in Claude sessions |
 | Calendar | Google Calendar | mcp | read; propose only | available in Claude sessions |
 | Files | Google Drive (personal) | mcp | read | available in Claude sessions |
