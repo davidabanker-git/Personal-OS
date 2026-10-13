@@ -265,7 +265,7 @@ Dedicated agents, each with one job and the model that fits it. The orchestrator
 ### Wiki track: Obsidian + LLM wiki (parallel)
 
 - **What:** the [`nvk/llm-wiki`](https://github.com/nvk/llm-wiki) plugin, built on Karpathy's LLM wiki idea. Raw notes and sources go in. An agent compiles them into linked, synthesized articles, with indexes and lint checks. Obsidian is the viewer.
-- **Where:** a private GitHub repo (`personal-wiki`) holds the wiki hub. It syncs to Mac and iPhone through Obsidian's Git plugin, and cloud sessions clone it, so agents can read and update it from anywhere.
+- **Where:** a private GitHub repo (`personal-wiki`) holds the wiki hub. It syncs to my Windows PC and iPhone through Obsidian's Git plugin, and cloud sessions clone it, so agents can read and update it from anywhere.
 - **First topics:**
   - growth, mindfulness and thought work (feeds the friction report's root-cause step)
   - GTM engineering and bizdev

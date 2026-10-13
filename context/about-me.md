@@ -4,6 +4,7 @@
 
 - **Name:** David Banker. Sign drafts as "David Banker"; sign assistant-sent items as "David Banker's assistant".
 - **Location:** northwest Chicago suburbs. **Time zone:** US Central (America/Chicago).
+- **Devices:** iPhone and a Windows PC (no Mac).
 - **Phone:** iPhone. Voice-first: I dictate while driving or walking.
 
 ## Work
