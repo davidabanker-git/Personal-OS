@@ -2,7 +2,7 @@
 
 From the how-I-work interview (started 2026-10-13). `(confirmed)` = I said it; `(synthesized)` = abstracted from my examples and approved.
 
-**Next layer:** institutional knowledge
+**Next layer:** friction
 
 ## 1. Operating rhythms
 
@@ -78,6 +78,14 @@ _Current state as of 2026-10-13. These change as onboarding finishes, so refresh
 
 **Waiting on me**
 - **David Lai:** for me to schedule a session to walk through the research and process-mapping tools together, so I can run that process myself soon. Open loop.
+
+## 4. Institutional knowledge
+
+**My own lead conversations** (confirmed)
+- What only I know: the history and context of conversations with my own leads.
+- Where it lives: mostly my head, plus texts and email. None of it is in a shared system.
+- Risk: if I'm out or busy, follow-ups slip, and nobody else can pick up the thread.
+- Fix (synthesized, approved): after each lead conversation, send a short voice note to `#keystone`. It's captured to the Brain, and each person gets a CRM record (`professional_contacts`, `contact_interactions`).
 
 ## Automation candidates
 
