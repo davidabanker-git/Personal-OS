@@ -100,6 +100,10 @@ _Current state as of 2026-10-13. These change as onboarding finishes, so refresh
 - Both are put off because they feel daunting and I'm unsure they're the best use of my time.
 - Likely root cause: an unclear next step and a big-looking job, not a lack of time. (synthesized, approved)
 
+## Close-out notes
+
+- **Keystone meeting slots** (confirmed): WFH days, then early mornings, then drive-time calls, then about 4 pm on office days. Applied to `work-preferences.md`.
+
 ## Automation candidates
 
 | Candidate | Frequency × time | Fits |

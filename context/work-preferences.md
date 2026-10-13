@@ -15,10 +15,19 @@ All times are US Central.
 
 ## Meeting rules
 
+The rules below cover my **Ensemble day job**. Keystone meetings follow the Keystone order further down.
+
 - **Default length:** 30 minutes. Use 15 for a quick standup or touch base. Go longer only when the topic needs it.
 - **Afternoons by default.**
 - **Morning override** is allowed only for urgent or strategically important meetings that directly affect revenue or business outcomes. Flag these as overrides.
 - When I ask for a meeting ("with X about Y"), offer 2–3 slots that follow these rules. Never book without my approval.
+
+### Keystone meetings (preference order, confirmed 2026-10-13)
+
+1. Work-from-home days (usually Monday and Friday).
+2. Early mornings before the day job.
+3. Phone or Zoom calls during my roughly 1-hour drive to or from the office.
+4. Last resort: late afternoon (about 4:00 pm) on an office day. I go in early to make room.
 
 ## Communication
 
