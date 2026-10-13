@@ -2,7 +2,7 @@
 
 From the how-I-work interview (started 2026-10-13). `(confirmed)` = I said it; `(synthesized)` = abstracted from my examples and approved.
 
-**Next layer:** friction
+**Status:** all five layers saved 2026-10-13; close-out pending
 
 ## 1. Operating rhythms
 
@@ -87,6 +87,23 @@ _Current state as of 2026-10-13. These change as onboarding finishes, so refresh
 - Risk: if I'm out or busy, follow-ups slip, and nobody else can pick up the thread.
 - Fix (synthesized, approved): after each lead conversation, send a short voice note to `#keystone`. It's captured to the Brain, and each person gets a CRM record (`professional_contacts`, `contact_interactions`).
 
+## 5. Friction
+
+**Planning sweep** (confirmed)
+- Pulling Notion, Gmail, texts and paper notes in my office into one to-do list, then deciding priorities and what comes next.
+- Takes 30–60 minutes when I do it, so it's inconsistent. I want a daily version plus a weekly review.
+
+**Lead follow-ups** (confirmed)
+- Tracked by hand across texts and email, so follow-ups can slip.
+
+**Deferred: short-list outreach and building automations** (confirmed)
+- Both are put off because they feel daunting and I'm unsure they're the best use of my time.
+- Likely root cause: an unclear next step and a big-looking job, not a lack of time. (synthesized, approved)
+
 ## Automation candidates
 
-_(filled in during the friction layer)_
+| Candidate | Frequency × time | Fits |
+|---|---|---|
+| Morning brief that does the planning sweep: one prioritized list with the next best action | Daily × 30–60 min, about 3–5 hours a week | Phase 5 morning brief; start early |
+| Lead follow-up tracker: voice note after each conversation, CRM record, follow-ups due shown in the brief | Every lead conversation; prevents slips | Slack capture + CRM tables (built) |
+| Short-list outreach: research each contact, draft the first message, I approve and send | Short list (about 5–15 people), one time, then ongoing | `bizdev-outreach` quick version; first `automate-this` run |
