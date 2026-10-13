@@ -256,6 +256,7 @@ These sit in the **Keystone build queue** (`context/priorities.md`). The assista
 | Neo4j | Parked | Optional read-only projection of the Supabase graph, for learning Cypher |
 | Live always-on session (Telegram, Discord or iMessage via Channels) | Parked | Needs a computer kept running |
 | Passive time tracking | Parked | Too hard to do well on iPhone |
+| Day-job task module | Later | Lightweight to-do and project list for Ensemble work, kept separate from day-job systems (corporate security) |
 | Conversational scheduling with rules | Later | Comes after Phase 5, using the calendar connector plus `context/scheduling-rules.md` |
 
 ---

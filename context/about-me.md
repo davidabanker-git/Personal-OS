@@ -6,6 +6,11 @@
 - **Location:** northwest Chicago suburbs. **Time zone:** US Central (America/Chicago).
 - **Phone:** iPhone. Voice-first: I dictate while driving or walking.
 
+## Work
+
+- **Day job:** finance team at Ensemble Healthcare Resource Group (Ensemble HRG). Senior-living operator and back office. Work: project implementations, day-to-day finance, forecasting. Hours about 9–5. Its systems stay out of this OS.
+- **Keystone AI:** done around the day job, mostly in early mornings and from my phone. See `context/how-i-work.md`.
+
 ## Keystone: my role
 
 I keep the team lean by building workflows that multiply my output. My areas, now and evolving:
