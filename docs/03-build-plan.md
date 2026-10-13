@@ -101,7 +101,7 @@ The assistant updates this table whenever I report progress, and **tells me if t
 
 | Phase | Status | Planned | Projected | Notes |
 |---|---|---|---|---|
-| 0: Foundations | in progress | Oct 8–11 | Oct 11 | Manual drafted; accounts and Slack test pending |
+| 0: Foundations | in progress | Oct 8–11 | Oct 14 | Manual drafted; Supabase project created Oct 13; Linear, Slack, keys pending |
 | 1: automate-this + interview | not started | Oct 12–18 | Oct 18 | Process-map moved to the Keystone queue |
 | 2: Memory | not started | Oct 12–18 | Oct 18 | |
 | 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
