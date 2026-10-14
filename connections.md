@@ -6,9 +6,9 @@ Registry of every system this OS can reach. Update a row whenever a connection i
 
 | Domain | Tool | Mechanism | Access | Last verified |
 |---|---|---|---|---|
-| Memory | Open Brain (Supabase project `personal-os`, ref `omotqffpafzzmwhezgki`, us-east-2) | mcp | read/write | schema live 2026-10-13; MCP function `open-brain-mcp` deployed (fails closed until secrets are set) |
+| Memory | Open Brain (Supabase project `personal-os`, ref `omotqffpafzzmwhezgki`, us-east-2) | mcp | read/write | schema live 2026-10-13; secrets set 2026-10-14; Claude/ChatGPT connectors pending |
 | Tasks | Linear (team `DAV`) | mcp / api | read/write | verified 2026-10-13 |
-| Chat front door | Slack (`#personal`, `#keystone`) | capture function + Claude Code in Slack | write (capture) | channels verified; `slack-capture` function deployed 2026-10-13 (signature-verified); Slack app not yet created |
+| Chat front door | Slack (`#personal`, `#keystone`) | capture function + Slack connector | capture; morning brief posts to `#personal` | Slack app "Open Brain" live 2026-10-14; capture verified end to end; skips OS posts (v6) |
 | Email | Gmail | mcp | read; **drafts only** | available in Claude sessions |
 | Calendar | Google Calendar | mcp | read; propose only | available in Claude sessions |
 | Files | Google Drive (personal) | mcp | read | available in Claude sessions |
