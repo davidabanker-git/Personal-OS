@@ -10,6 +10,7 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
   - `how-i-work-interview` and `automate-this` skills built.
   - Interview done; results in `context/how-i-work.md`.
   - First real `automate-this` run is pending: short-list outreach, recommended.
+- **Morning brief (Phase 5, pulled forward):** skill `.claude/skills/morning-brief/` built Oct 14. A preview for Oct 15 was posted to `#personal`. `slack-capture` v6 skips OS posts (verified: the preview wasn't captured). Next: merge, then the scheduled task (weekdays 3:47 am Central, fresh session per run, connectors Calendar, Gmail, Linear and Slack). Unattended runs may stop at approval prompts; if so, the brief's read tools and the Slack post need allow rules in `.claude/settings.json` (David's call: allowing the Slack post means no prompt for any Slack send).
 - **Phase 2:**
   - Supabase `personal-os` (ref `omotqffpafzzmwhezgki`): schema live (thoughts, CRM, ob-graph, events).
   - Edge functions `open-brain-mcp` and `slack-capture` deployed. Both fail closed until secrets are set.

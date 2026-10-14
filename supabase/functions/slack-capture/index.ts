@@ -21,6 +21,15 @@ const CHANNELS: Record<string, "personal" | "keystone"> = {
   C0C8WB86HPB: "keystone",
 };
 
+// Posts the OS itself writes (briefs, reflections, reviews) start with one of
+// these headers. They aren't captures, so they're skipped.
+const OS_POST_HEADERS = ["Morning brief", "Evening reflection", "Weekly review"];
+
+export function isOsPost(text: string): boolean {
+  const first = text.trimStart().replace(/^[*_]+/, "");
+  return OS_POST_HEADERS.some((h) => first.startsWith(h));
+}
+
 const OPENROUTER_BASE = "https://openrouter.ai/api/v1";
 const MAX_SKEW_SECONDS = 60 * 5;
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
@@ -179,7 +188,7 @@ Deno.serve(async (req: Request): Promise<Response> => {
   const event = body.event;
   const isCapture = event && event.type === "message" && !event.subtype && !event.bot_id &&
     !event.thread_ts && event.channel in CHANNELS && typeof event.text === "string" &&
-    event.text.trim() !== "";
+    event.text.trim() !== "" && !isOsPost(event.text);
   if (!isCapture) return new Response("ok");
 
   // Ack now; finish after the response so Slack's 3s window isn't hit.
