@@ -14,15 +14,13 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
   - Supabase `personal-os` (ref `omotqffpafzzmwhezgki`): schema live (thoughts, CRM, ob-graph, events).
   - Edge functions `open-brain-mcp` and `slack-capture` deployed. Both fail closed until secrets are set.
 - **Roadmap additions:** Phase 5b agent team, and a wiki track (see the build plan).
+- **Session check (Oct 14, later):** Supabase logs show no edge-function traffic in the last 24 hours, so action items 1–3 are still open. Proposed next build: the morning brief (Phase 5, pulled forward), with Phase 2b import schema as the alternative. Waiting on David's pick.
 - **Visual:** [Personal OS Stack](https://claude.ai/artifact/SN1ybdJ4Ftx2KP3ykzF1wT). The source lives in the old session's scratchpad; republish via `url`.
 
 ## David's action items (all phone-friendly)
 
-1. **Supabase secrets:** Edge Functions → Secrets. Steps in `docs/learn/setup-keys-and-slack.md`.
-   - `OPENROUTER_API_KEY`
-   - `MCP_ACCESS_KEY` (generate one in the iPhone Passwords app)
-   - `TYPESAFE_API_KEY` (optional for now)
-2. **Slack app "Open Brain":** gives `SLACK_BOT_TOKEN` and `SLACK_SIGNING_SECRET`. Set the event URL `.../functions/v1/slack-capture` and invite the app to both channels.
+1. ~~**Supabase secrets**~~ **done Oct 14.** `OPENROUTER_API_KEY` (its own key, `personal-os-supabase`, $5 limit) and `MCP_ACCESS_KEY` are set. `TYPESAFE_API_KEY` waits for Phase 3; it will be a new key, separate from the cloud environment's.
+2. ~~**Slack app "Open Brain"**~~ **done Oct 14.** Created from a manifest; the event URL is verified. The `#keystone` test landed in `thoughts` (type task, domain keystone, embedded) with a `capture` event. Confirm the bot is also invited to `#personal`. The test thought was deleted Oct 14.
 3. **Connect Claude and ChatGPT** to `.../functions/v1/open-brain-mcp?key=<MCP_ACCESS_KEY>`, then run the two-tool test.
 4. **Open loop:** schedule a session with David Lai on the research and process-mapping tools.
    - Keystone meeting slot order: WFH days, early mornings, drive-time calls, then about 4 pm on an office day as a last resort.
@@ -71,6 +69,17 @@ Two patterns. They differ on what is canonical.
 - **Supabase MCP `apply_migration` times out on big SQL.** Split migrations into a tables part and a functions part. Verify with `list_migrations` before retrying.
 - **The sandbox can't reach `*.supabase.co`.** Verify live endpoints with Firecrawl scrape (no secrets in the URL).
 - **Writing secrets is blocked by a permission check.** David enters them in the dashboard.
+- **Read-only Supabase allow list approved Oct 14**, but agents can't commit their own permission changes. David adds `.claude/settings.json` himself. Until then, every Supabase call prompts. Contents:
+  ```json
+  {"permissions": {"allow": [
+    "mcp__Supabase__list_tables", "mcp__Supabase__list_migrations",
+    "mcp__Supabase__list_extensions", "mcp__Supabase__list_edge_functions",
+    "mcp__Supabase__get_edge_function", "mcp__Supabase__query_logs",
+    "mcp__Supabase__get_advisors", "mcp__Supabase__get_project",
+    "mcp__Supabase__get_project_url", "mcp__Supabase__search_docs"
+  ]}}
+  ```
+- **Every Supabase MCP call asks David to approve it.** If one times out after 60s, an approval is waiting on David's screen; it's not a bug. Don't retry. Put checks into one query, and keep Supabase calls to a minimum.
 - **Deno isn't preinstalled.** Install it with `npm i deno@2` in the scratchpad, then use `deno check` and a local run to test functions.
 - **Local Postgres 16 + pgvector** works for migration tests. Use `/var/lib/postgresql/<dir>`, since the scratchpad path is too long for the socket.
 
