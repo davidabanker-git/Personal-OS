@@ -40,7 +40,7 @@ This file is the canonical manual. `CLAUDE.md` imports it. Codex and other agent
 | `context/taxonomy.md` | Areas, projects, people categories, used for triage |
 | `connections.md` | Every system this OS can reach, and how |
 | `decisions/log.md` | Append-only decisions and why |
-| `docs/` | Vision, reference research, build plan, `learn/` notes |
+| `docs/` | Vision, reference research, build plan, `learn/` notes, `handoff.md` (current state for a new session) |
 | `.claude/skills/` | Skills in `SKILL.md` format, created as they're built. Cloud sessions load them from the repo. `.agents/skills` will be a symlink, so Codex sees the same files. |
 
 Data outside this repo:

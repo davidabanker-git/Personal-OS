@@ -1,0 +1,70 @@
+# Session Handoff
+
+Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and `docs/03-build-plan.md`.
+
+## Where things stand
+
+- **PR:** [davidabanker-git/Personal-OS#2](https://github.com/davidabanker-git/Personal-OS/pull/2), branch `claude/magical-hawking-27nff6`. Clean and mergeable, no review comments.
+- **Phase 0:** done (Oct 13).
+- **Phase 1:**
+  - `how-i-work-interview` and `automate-this` skills built.
+  - Interview done; results in `context/how-i-work.md`.
+  - First real `automate-this` run is pending: short-list outreach, recommended.
+- **Phase 2:**
+  - Supabase `personal-os` (ref `omotqffpafzzmwhezgki`): schema live (thoughts, CRM, ob-graph, events).
+  - Edge functions `open-brain-mcp` and `slack-capture` deployed. Both fail closed until secrets are set.
+- **Roadmap additions:** Phase 5b agent team, and a wiki track (see the build plan).
+- **Visual:** [Personal OS Stack](https://claude.ai/artifact/SN1ybdJ4Ftx2KP3ykzF1wT). The source lives in the old session's scratchpad; republish via `url`.
+
+## David's action items (all phone-friendly)
+
+1. **Supabase secrets:** Edge Functions → Secrets. Steps in `docs/learn/setup-keys-and-slack.md`.
+   - `OPENROUTER_API_KEY`
+   - `MCP_ACCESS_KEY` (generate one in the iPhone Passwords app)
+   - `TYPESAFE_API_KEY` (optional for now)
+2. **Slack app "Open Brain":** gives `SLACK_BOT_TOKEN` and `SLACK_SIGNING_SECRET`. Set the event URL `.../functions/v1/slack-capture` and invite the app to both channels.
+3. **Connect Claude and ChatGPT** to `.../functions/v1/open-brain-mcp?key=<MCP_ACCESS_KEY>`, then run the two-tool test.
+4. **Open loop:** schedule a session with David Lai on the research and process-mapping tools.
+   - Keystone meeting slot order: WFH days, early mornings, drive-time calls, then about 4 pm on an office day as a last resort.
+5. **Short list** of contacts for the first `automate-this` run (outreach drafts).
+
+## Decision pending: which wiki model
+
+Two patterns. They differ on what is canonical.
+
+| | Nate's OB1 `recipes/wiki-compiler` | Karpathy / `nvk/llm-wiki` |
+|---|---|---|
+| Source of truth | Supabase (SQL). The wiki is a regenerable, compiled view | Raw source files. The AI-owned markdown wiki evolves over time |
+| How pages are made | Entity extraction, then typed edges, then entity pages (people, companies, projects) plus topic pages, run on demand or on a schedule | Ingest each source into the wiki; query; lint |
+| Fixing a wrong page | Fix the data, then regenerate | The AI edits the page; lint catches drift |
+| Fits | People, leads, meeting prep (CRM-style dossiers) | Learning from articles and videos |
+
+**Recommendation:** Nate's model as the default, because it keeps "Supabase is canonical" (decision of 2026-10-08) and needs no second store.
+- Learning sources (links, transcripts) are captured into Supabase as thoughts with a `source` type.
+- The compiler writes entity and topic pages into a git-synced Obsidian vault on a schedule.
+- Karpathy's ingest/query/lint behaviour is implemented over Supabase.
+- Use `nvk/llm-wiki` only if file-based ingest proves much better.
+
+**Check before building:** OB1's `schemas/entity-extraction` and `integrations/entity-extraction-worker`. Our live graph tables come from `ob-graph` (`graph_nodes`/`graph_edges`), which are not the entity-extraction tables (`entities`, `thought_entities`, `edges`).
+
+## How we compare to Nate's Open Stack
+
+| Open Stack part | Nate's design | Ours |
+|---|---|---|
+| Open Skills | Saved procedures, one per repeated job | `.claude/skills/` (+ `.agents/skills`), same idea ✅ |
+| Open Brain | Supabase + pgvector + MCP | Built, hardened ✅. Waiting on secrets |
+| Open Engine | Linear queue, statuses, labels, private instructions, worker, receipts; smoke / blocked-resumed / approval tests | Planned as Phase 4, with the same design ⬜ |
+
+**Nate's advice:** add a part only when a real problem needs it. Our order follows that. Not yet adopted: his maintained Open Engine guide (unlock-ai.natebjones.com/open-engine). Read it before building Phase 4.
+
+## Gotchas learned
+
+- **Supabase MCP `apply_migration` times out on big SQL.** Split migrations into a tables part and a functions part. Verify with `list_migrations` before retrying.
+- **The sandbox can't reach `*.supabase.co`.** Verify live endpoints with Firecrawl scrape (no secrets in the URL).
+- **Writing secrets is blocked by a permission check.** David enters them in the dashboard.
+- **Deno isn't preinstalled.** Install it with `npm i deno@2` in the scratchpad, then use `deno check` and a local run to test functions.
+- **Local Postgres 16 + pgvector** works for migration tests. Use `/var/lib/postgresql/<dir>`, since the scratchpad path is too long for the socket.
+
+## New-session starter prompt
+
+> Read `docs/handoff.md`, `AGENTS.md`, `context/how-i-work.md` and `docs/03-build-plan.md` on branch `claude/magical-hawking-27nff6`. Then give me my action items in order and recommend what you'll build next.
