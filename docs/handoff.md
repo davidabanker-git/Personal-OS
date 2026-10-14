@@ -19,10 +19,7 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
 
 ## David's action items (all phone-friendly)
 
-1. **Supabase secrets:** Edge Functions → Secrets. Steps in `docs/learn/setup-keys-and-slack.md`.
-   - `OPENROUTER_API_KEY`
-   - `MCP_ACCESS_KEY` (generate one in the iPhone Passwords app)
-   - `TYPESAFE_API_KEY` (optional for now)
+1. ~~**Supabase secrets**~~ **done Oct 14.** `OPENROUTER_API_KEY` (its own key, `personal-os-supabase`, $5 limit) and `MCP_ACCESS_KEY` are set. `TYPESAFE_API_KEY` waits for Phase 3; it will be a new key, separate from the cloud environment's.
 2. **Slack app "Open Brain":** gives `SLACK_BOT_TOKEN` and `SLACK_SIGNING_SECRET`. Set the event URL `.../functions/v1/slack-capture` and invite the app to both channels.
 3. **Connect Claude and ChatGPT** to `.../functions/v1/open-brain-mcp?key=<MCP_ACCESS_KEY>`, then run the two-tool test.
 4. **Open loop:** schedule a session with David Lai on the research and process-mapping tools.
