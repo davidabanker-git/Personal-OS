@@ -120,3 +120,13 @@ Approved for read access alongside personal Drive. Needs setup.
 **What:** the morning brief (Phase 5, pulled forward) is the next build. It posts to Slack `#personal` on weekdays at 4:00 am Central, ready before I wake at about 4:15.
 
 **Why:** it replaces the 30–60 minute planning sweep, my biggest daily friction, and it isn't blocked by the open setup items.
+
+## 2026-10-14: Read-only Supabase tools run without approval
+
+**What:** allow the read-only Supabase tools (list tables, migrations, extensions and functions; read logs, advisors, project info and docs) without a prompt. Running SQL, migrations, deploys and secrets still need my approval every time.
+
+**Why:** I approved about a dozen prompts to delete one test row. Read-only calls can't change anything, so prompting for them is friction without protection. Agents also combine checks into one query and never retry a call that's waiting on my approval.
+
+**How:** a `permissions.allow` list in `.claude/settings.json`. Agents can't commit changes to their own permissions, so I add the file myself.
+
+**Would change if:** a read-only tool starts returning sensitive data, or Supabase adds write behavior to one of these tools.
