@@ -20,7 +20,7 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
 ## David's action items (all phone-friendly)
 
 1. ~~**Supabase secrets**~~ **done Oct 14.** `OPENROUTER_API_KEY` (its own key, `personal-os-supabase`, $5 limit) and `MCP_ACCESS_KEY` are set. `TYPESAFE_API_KEY` waits for Phase 3; it will be a new key, separate from the cloud environment's.
-2. ~~**Slack app "Open Brain"**~~ **done Oct 14.** Created from a manifest; the event URL is verified. The `#keystone` test landed in `thoughts` (type task, domain keystone, embedded) with a `capture` event. Confirm the bot is also invited to `#personal`.
+2. ~~**Slack app "Open Brain"**~~ **done Oct 14.** Created from a manifest; the event URL is verified. The `#keystone` test landed in `thoughts` (type task, domain keystone, embedded) with a `capture` event. Confirm the bot is also invited to `#personal`. The test thought (`ee725984…`, "call Jane") is approved for deletion; delete it if it's still there.
 3. **Connect Claude and ChatGPT** to `.../functions/v1/open-brain-mcp?key=<MCP_ACCESS_KEY>`, then run the two-tool test.
 4. **Open loop:** schedule a session with David Lai on the research and process-mapping tools.
    - Keystone meeting slot order: WFH days, early mornings, drive-time calls, then about 4 pm on an office day as a last resort.
@@ -69,6 +69,7 @@ Two patterns. They differ on what is canonical.
 - **Supabase MCP `apply_migration` times out on big SQL.** Split migrations into a tables part and a functions part. Verify with `list_migrations` before retrying.
 - **The sandbox can't reach `*.supabase.co`.** Verify live endpoints with Firecrawl scrape (no secrets in the URL).
 - **Writing secrets is blocked by a permission check.** David enters them in the dashboard.
+- **Supabase MCP `execute_sql` times out on `DELETE`** (it waits for a confirmation that never arrives; the row stays). David deletes rows in the dashboard Table Editor instead.
 - **Deno isn't preinstalled.** Install it with `npm i deno@2` in the scratchpad, then use `deno check` and a local run to test functions.
 - **Local Postgres 16 + pgvector** works for migration tests. Use `/var/lib/postgresql/<dir>`, since the scratchpad path is too long for the socket.
 
