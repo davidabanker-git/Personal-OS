@@ -264,15 +264,48 @@ Dedicated agents, each with one job and the model that fits it. The orchestrator
 
 ### Wiki track: Obsidian + LLM wiki (parallel)
 
-- **What:** the [`nvk/llm-wiki`](https://github.com/nvk/llm-wiki) plugin, built on Karpathy's LLM wiki idea. Raw notes and sources go in. An agent compiles them into linked, synthesized articles, with indexes and lint checks. Obsidian is the viewer.
-- **Where:** a private GitHub repo (`personal-wiki`) holds the wiki hub. It syncs to my Windows PC and iPhone through Obsidian's Git plugin, and cloud sessions clone it, so agents can read and update it from anywhere.
-- **First topics:**
-  - growth, mindfulness and thought work (feeds the friction report's root-cause step)
-  - GTM engineering and bizdev
-  - Keystone learning
-- **Brain link:** wiki articles stay in Git. A scheduled job captures article summaries into the Brain, so search covers both.
-- **Privacy:** session-capture hooks stay off until reviewed. Client data stays out (personal content rule).
-- **Done when:** one topic is compiled from real notes, opens in Obsidian on my phone, and a query from a cloud session cites it.
+**Purpose:** the knowledge layer. I curate sources, and the AI writes and maintains the wiki. Obsidian is where I watch it grow; I don't write the notes. (Karpathy's LLM wiki: Obsidian = the IDE, the LLM = the programmer, the vault = the codebase.)
+
+**Three layers:**
+1. **Raw sources:** articles, video transcripts, papers, Nate's posts, my own reflections. Immutable: the AI reads them and never edits them.
+2. **Wiki:** AI-owned markdown, including summaries, entity pages (people, companies, tools) and syntheses across sources.
+3. **Schema:** the instructions that tell the AI how the wiki is organized.
+
+**Three operations:**
+- **Ingest:** a new source is read, then folded into the existing pages, so it updates what's already there instead of sitting beside it as a new note.
+- **Query:** I ask, and the AI answers from the wiki pages, citing them.
+- **Lint:** a regular health check for contradictions, stale claims and orphan pages.
+
+**Navigation files:** `index.md` (a catalog, updated on every ingest) and `log.md` (an append-only record of every ingest, query and lint).
+
+**How:** the [`nvk/llm-wiki`](https://github.com/nvk/llm-wiki) plugin implements exactly this:
+- `raw/`, `wiki/`, a `schema.md` per topic, `_index.md`, `log.md`
+- `ingest`, `query` and `lint` commands
+
+Use only those core operations at first; skip the plugin's extras.
+
+**Where it lives:**
+- A private GitHub repo (`personal-wiki`), synced to my Windows PC and iPhone through Obsidian's Git plugin.
+- Cloud agents clone it, so they can ingest, query and lint from anywhere.
+
+**Capture from my phone:** share a link or voice note to Slack with `wiki:` at the start. An agent ingests it into the right topic and replies with what changed.
+
+**Wiki vs. Brain:**
+- The Brain (Supabase) is *operational memory*: what happened, who, when, and what's open.
+- The wiki is *knowledge*: what I've learned and what the sources say.
+- Brain captures can become wiki sources. Wiki summaries are indexed in the Brain, so one search covers both.
+
+**First topics:**
+- GTM engineering and bizdev
+- AI tools and agents (Keystone learning)
+- Growth, mindfulness and thought work (feeds the friction report's root-cause step)
+
+**Privacy:** session-capture hooks stay off until reviewed. Client data stays out.
+
+**Done when:**
+- 5 real sources are ingested into one topic.
+- A query from my phone returns a cited answer.
+- The first lint pass runs clean.
 
 ### Later or parked
 
