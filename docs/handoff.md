@@ -4,7 +4,7 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
 
 ## Where things stand
 
-- **PR:** [davidabanker-git/Personal-OS#2](https://github.com/davidabanker-git/Personal-OS/pull/2), branch `claude/magical-hawking-27nff6`. Clean and mergeable, no review comments.
+- **PR:** [davidabanker-git/Personal-OS#2](https://github.com/davidabanker-git/Personal-OS/pull/2) merged into `main` on 2026-10-14. New sessions start from `main`.
 - **Phase 0:** done (Oct 13).
 - **Phase 1:**
   - `how-i-work-interview` and `automate-this` skills built.
@@ -79,7 +79,7 @@ Two patterns. They differ on what is canonical.
 Paste this exactly:
 
 ```
-Continue building my Personal OS. Work on branch claude/magical-hawking-27nff6 in davidabanker-git/Personal-OS (PR #2).
+Continue building my Personal OS in davidabanker-git/Personal-OS (start from main; PR #2 is merged).
 
 Read these first, in order:
 1. docs/handoff.md (current state, my action items, pending decisions, gotchas)
