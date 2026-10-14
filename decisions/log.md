@@ -130,3 +130,11 @@ Approved for read access alongside personal Drive. Needs setup.
 **How:** a `permissions.allow` list in `.claude/settings.json`. Agents can't commit changes to their own permissions, so I add the file myself.
 
 **Would change if:** a read-only tool starts returning sensitive data, or Supabase adds write behavior to one of these tools.
+
+## 2026-10-14: A live visual home, with a change-request loop
+
+**What:** Phase 5c (after Phase 4) adds a live dashboard whose views evolve as I ask for them. It starts as a private Claude artifact; Vercel only if artifacts fall short. The first view is **Opportunities**: what the proactive agents found, with evidence, readiness (works now / light setup / heavier setup), one-time vs. repeatable, and the route (which agent, or me). I tick items and choose Delegate or Build the capability. Changes to any view go through a loop: I comment, the agent shows a before/after mockup, I approve, it builds, and a receipt lands in Linear.
+
+**Why:** Slack is good for one decision at a time, but choosing among many opportunities and seeing the whole picture needs a page. The loop keeps the dashboard improving without me opening code.
+
+**Would change if:** Slack plus Linear turn out to be enough, or artifacts can't show live data reliably.

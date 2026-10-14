@@ -109,6 +109,7 @@ The assistant updates this table whenever I report progress, and **tells me if t
 | 5: Cadence | not started | Oct 26–31 | Oct 31 | Morning brief pulled forward: it replaces the 30–60 min planning sweep |
 | 5b: Agent team | not started | Nov | Nov | After Phase 4; Linear is the handoff layer |
 | 2b: Data sources | not started | Oct 19–25 | Oct 25 | `docs/04-data-sources.md`. Needs exports from me |
+| 5c: Visual home + change loop | not started | after Phase 4 | Nov | Artifact first; first view is Opportunities (readiness, one-time vs repeatable, delegate or build) |
 | Wiki: Obsidian + LLM wiki | not started | parallel | Nov | Model decision pending (Nate's `wiki-compiler` vs `nvk/llm-wiki`); see `docs/handoff.md` |
 | **Overall** | | **Oct 31** | **Oct 31** | |
 
@@ -285,6 +286,28 @@ Dedicated agents, each with one job and the model that fits it. The orchestrator
 - **Rule:** start with 2–3 agents (chief of staff, researcher, outreach writer). Add one only when `automate-this` or the weekly discovery pass shows a repeated job that needs it.
 - **Done when:** the chief of staff routes one real task to the researcher, then to the outreach writer, and returns one approval to me, with receipts in Linear.
 
+### Phase 5c: Visual home and change-request loop (after Phase 4)
+
+**Purpose:** a live dashboard with views that evolve over time. I ask for a new view in plain words, and the OS builds it.
+
+**Start small:** a private Claude artifact that reads live data. Move to a Vercel app only if artifacts fall short.
+
+**First view: Opportunities.** What the proactive agents uncovered, each with:
+- **Evidence:** why it surfaced (event log, friction report, repeated tasks).
+- **Readiness:** works now with the current setup / light setup / heavier setup.
+- **Shape:** one-time job vs. worth a repeatable, triggerable setup.
+- **Route:** which agent and model would take it, or "you" when it's mine to do.
+- **Action:** I tick the ones I want, then choose **Delegate** (Linear tasks routed to the right agent) or **Build the capability** (an `automate-this` run).
+
+**Change-request loop (L2):**
+1. I comment on the page, or say `change:` in Slack (voice is fine).
+2. It becomes a Linear task, routed to Opus (UI work).
+3. The agent posts a before/after: a screenshot of today next to a mockup, plus one line on what changes and why.
+4. I approve with one tap, or redirect.
+5. The agent builds on a branch, shows the result, and publishes after my OK. A receipt goes in the Linear task.
+
+**Done when:** the Opportunities view shows real items from one discovery pass, I delegate one from the page, and one change request goes from comment to approved build.
+
 ### Wiki track: Obsidian + LLM wiki (parallel)
 
 **Purpose:** the knowledge layer. I curate sources, and the AI writes and maintains the wiki. Obsidian is where I watch it grow; I don't write the notes. (Karpathy's LLM wiki: Obsidian = the IDE, the LLM = the programmer, the vault = the codebase.)
@@ -334,7 +357,7 @@ Use only those core operations at first; skip the plugin's extras.
 
 | Item | Status | Notes |
 |---|---|---|
-| Dashboard (Vercel) | Build only if Slack plus Linear prove insufficient | Tabs: Intake, Today/Week, People, Approvals, Automations |
+| Dashboard (Vercel) | Superseded by Phase 5c; Vercel only if artifacts fall short | Tabs: Intake, Today/Week, People, Approvals, Automations |
 | Neo4j | Parked | Optional read-only projection of the Supabase graph, for learning Cypher |
 | Live always-on session (Telegram, Discord or iMessage via Channels) | Parked | Needs a computer kept running |
 | Passive time tracking | Parked | Too hard to do well on iPhone |
