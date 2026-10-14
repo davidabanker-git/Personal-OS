@@ -28,6 +28,10 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
    - Keystone meeting slot order: WFH days, early mornings, drive-time calls, then about 4 pm on an office day as a last resort.
 5. **Short list** of contacts for the first `automate-this` run (outreach drafts).
 
+## Data sources
+
+See `docs/04-data-sources.md`: distill, don't dump; read Gmail, Drive and Notion in place; backfill ChatGPT and Claude history first. Waiting on David's approval and his exports.
+
 ## Decision pending: which wiki model
 
 Two patterns. They differ on what is canonical.
