@@ -69,7 +69,16 @@ Two patterns. They differ on what is canonical.
 - **Supabase MCP `apply_migration` times out on big SQL.** Split migrations into a tables part and a functions part. Verify with `list_migrations` before retrying.
 - **The sandbox can't reach `*.supabase.co`.** Verify live endpoints with Firecrawl scrape (no secrets in the URL).
 - **Writing secrets is blocked by a permission check.** David enters them in the dashboard.
-- **Read-only Supabase allow list approved Oct 14**, but agents can't commit their own permission changes. David adds `.claude/settings.json` himself (contents in the decision log entry of Oct 14). Until then, every Supabase call prompts.
+- **Read-only Supabase allow list approved Oct 14**, but agents can't commit their own permission changes. David adds `.claude/settings.json` himself. Until then, every Supabase call prompts. Contents:
+  ```json
+  {"permissions": {"allow": [
+    "mcp__Supabase__list_tables", "mcp__Supabase__list_migrations",
+    "mcp__Supabase__list_extensions", "mcp__Supabase__list_edge_functions",
+    "mcp__Supabase__get_edge_function", "mcp__Supabase__query_logs",
+    "mcp__Supabase__get_advisors", "mcp__Supabase__get_project",
+    "mcp__Supabase__get_project_url", "mcp__Supabase__search_docs"
+  ]}}
+  ```
 - **Every Supabase MCP call asks David to approve it.** If one times out after 60s, an approval is waiting on David's screen; it's not a bug. Don't retry. Put checks into one query, and keep Supabase calls to a minimum.
 - **Deno isn't preinstalled.** Install it with `npm i deno@2` in the scratchpad, then use `deno check` and a local run to test functions.
 - **Local Postgres 16 + pgvector** works for migration tests. Use `/var/lib/postgresql/<dir>`, since the scratchpad path is too long for the socket.
