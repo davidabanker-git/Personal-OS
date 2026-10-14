@@ -27,6 +27,11 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
 4. **Open loop:** schedule a session with David Lai on the research and process-mapping tools.
    - Keystone meeting slot order: WFH days, early mornings, drive-time calls, then about 4 pm on an office day as a last resort.
 5. **Short list** of contacts for the first `automate-this` run (outreach drafts).
+6. **Exports for Phase 2b:**
+   - ChatGPT: Settings → Data controls → Export data
+   - Claude: Settings → Privacy → Export data
+   - Notion: a list of the pages and workspaces to include or skip
+7. **Decide the wiki model** (below). Recommendation: Nate's `wiki-compiler`.
 
 ## Data sources
 
@@ -71,4 +76,22 @@ Two patterns. They differ on what is canonical.
 
 ## New-session starter prompt
 
-> Read `docs/handoff.md`, `AGENTS.md`, `context/how-i-work.md` and `docs/03-build-plan.md` on branch `claude/magical-hawking-27nff6`. Then give me my action items in order and recommend what you'll build next.
+Paste this exactly:
+
+```
+Continue building my Personal OS. Work on branch claude/magical-hawking-27nff6 in davidabanker-git/Personal-OS (PR #2).
+
+Read these first, in order:
+1. docs/handoff.md (current state, my action items, pending decisions, gotchas)
+2. AGENTS.md (operating manual; follow it)
+3. context/how-i-work.md and context/about-me.md
+4. docs/03-build-plan.md (phases and progress tracker)
+5. docs/04-data-sources.md (data sources and the clean import pipeline)
+
+Then reply with three things only:
+- My open action items, in order, one line each.
+- What you will build next and why (one or two options, with a recommendation).
+- Any decision you need from me (one question at a time).
+
+Don't rebuild anything that's already done. Update docs/handoff.md at the end of every session.
+```

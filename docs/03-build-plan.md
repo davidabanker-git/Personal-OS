@@ -108,7 +108,8 @@ The assistant updates this table whenever I report progress, and **tells me if t
 | 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |
 | 5: Cadence | not started | Oct 26–31 | Oct 31 | Morning brief pulled forward: it replaces the 30–60 min planning sweep |
 | 5b: Agent team | not started | Nov | Nov | After Phase 4; Linear is the handoff layer |
-| Wiki: Obsidian + LLM wiki | not started | parallel | Nov | `nvk/llm-wiki` plugin; vault in a private GitHub repo |
+| 2b: Data sources | not started | Oct 19–25 | Oct 25 | `docs/04-data-sources.md`. Needs exports from me |
+| Wiki: Obsidian + LLM wiki | not started | parallel | Nov | Model decision pending (Nate's `wiki-compiler` vs `nvk/llm-wiki`); see `docs/handoff.md` |
 | **Overall** | | **Oct 31** | **Oct 31** | |
 
 ## Phases
@@ -244,6 +245,28 @@ These sit in the **Keystone build queue** (`context/priorities.md`). The assista
 5. `ops-runbook-writer`
 
 **Portability:** every skill uses the open `SKILL.md` format and must be portable to the company AI stack.
+
+### Phase 2b: Data sources and backfill (after Phase 2 is live)
+
+Full plan in `docs/04-data-sources.md`.
+
+**Build:**
+- **Schema for repeatable imports:**
+  - `source_ref` (unique per source)
+  - an `import_runs` audit table
+  - a review-queue view for low-confidence merges and person matches
+- **Clean pipeline:** landing, then distill, then dedup (exact, then same-source, then near-duplicate at ≥0.92), then review, then the Brain.
+- **Backfills, in order:**
+  1. ChatGPT + Claude history (OB1 `chatgpt-conversation-import`, adapted for Claude)
+  2. selected Notion pages
+  3. Gmail lead and Keystone threads from the last 12 months into the CRM
+  4. one batch of paper-note photos
+- **Live inputs:** a `notes:` photo capture in Slack. Gmail, Drive, Calendar and Notion are read in place by agents.
+
+**Done when:**
+- The ChatGPT and Claude backfill lands with no exact duplicates.
+- The review queue shows fewer than 20 items.
+- A search from my phone finds a decision I made in an old ChatGPT chat.
 
 ### Phase 5b: Agent team (after Phase 4)
 
