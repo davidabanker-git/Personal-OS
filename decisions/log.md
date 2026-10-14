@@ -114,3 +114,9 @@ Approved for read access alongside personal Drive. Needs setup.
 **Why:** agents with one job each are easier to tune and cheaper to run, and Linear handoffs leave receipts. The wiki turns scattered notes into linked knowledge that agents and I can both use.
 
 **Would change if:** Linear handoffs prove too slow for agent-to-agent work, or the plugin's footprint outweighs its value. A simpler fallback is a plain markdown vault plus OB1's Obsidian import.
+
+## 2026-10-14: Morning brief goes to #personal at 4:00 am
+
+**What:** the morning brief (Phase 5, pulled forward) is the next build. It posts to Slack `#personal` on weekdays at 4:00 am Central, ready before I wake at about 4:15.
+
+**Why:** it replaces the 30–60 minute planning sweep, my biggest daily friction, and it isn't blocked by the open setup items.
