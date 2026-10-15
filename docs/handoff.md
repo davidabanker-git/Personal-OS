@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-10-15. Read this first in a new session, then `AGENTS.md` and `docs/03-build-plan.md`.
+Last updated: 2026-10-15 (Phase 3 kickoff session). Read this first in a new session, then `AGENTS.md` and `docs/03-build-plan.md`.
 
 ## Where things stand
 
@@ -24,20 +24,26 @@ Last updated: 2026-10-15. Read this first in a new session, then `AGENTS.md` and
 ## David's action items (all phone-friendly)
 
 1. ~~**Supabase secrets**~~ **done Oct 14; `MCP_ACCESS_KEY` rotated Oct 15** (the old one had been emailed; the email is deleted). `OPENROUTER_API_KEY` (its own key, `personal-os-supabase`, $5 limit) and `MCP_ACCESS_KEY` are set. `TYPESAFE_API_KEY` waits for Phase 3; it will be a new key, separate from the cloud environment's.
-2. ~~**Slack app "Open Brain"**~~ **done Oct 14.** Created from a manifest; the event URL is verified. The `#keystone` test landed in `thoughts` (type task, domain keystone, embedded) with a `capture` event. Confirm the bot is also invited to `#personal`. The test thought was deleted Oct 14.
+2. ~~**Slack app "Open Brain"**~~ **done Oct 14.** Created from a manifest; the event URL is verified. The `#keystone` test landed in `thoughts` (type task, domain keystone, embedded) with a `capture` event. Bot is in `#personal` (added Oct 14); **capture from `#personal` verified Oct 15** (test line filed as task · meditation). The `#keystone` test thought was deleted Oct 14.
 3. ~~**Connect Claude and ChatGPT**~~ **done Oct 15; two-tool test passed.** Claude via claude.ai Connectors (account-wide, including cloud sessions). ChatGPT via the desktop app's MCP list (`x-brain-key` header), which isn't on the iPhone app. ChatGPT mobile can't use custom MCP servers (web only, per OpenAI help, Oct 15), so on the phone use Claude or Slack. Open Brain is switched on in the Morning brief routine (Oct 15). See `docs/learn/apps-and-surfaces.md`.
-4. **Open loop:** schedule a session with David Lai on the research and process-mapping tools.
+4. **Open loop:** schedule a session with David Lai on the research and process-mapping tools. **Oct 15:** David is texting him; the easy slot is the recurring Fri 8:15 "AI Stuff" call.
    - Keystone meeting slot order: WFH days, early mornings, drive-time calls, then about 4 pm on an office day as a last resort.
-5. **Short list** of contacts for the first `automate-this` run (outreach drafts).
+5. **Short list** of contacts for the first `automate-this` run (outreach drafts). **Deferred by David (Oct 15):** finish the harness first, then test skills.
 6. **Exports for Phase 2b:**
    - ChatGPT: Settings → Data controls → Export data
    - Claude: Settings → Privacy → Export data
    - Notion: a list of the pages and workspaces to include or skip
-7. **Decide the wiki model** (below). Recommendation: Nate's `wiki-compiler`.
+7. **Decide the wiki model** (below). Recommendation: Nate's `wiki-compiler`. David wants a short talk-through soon; keep it queued.
+8. **Skills repo (queued, Oct 15):** David has an empty GitHub repo `Skills` to share skills across his whole harness and projects, plus local skills to port and new ones to create. Design how projects consume it (e.g. submodule, sync, or plugin) after the harness is built.
 
 ## Next build: Phase 3, Jev triage (kickoff notes)
 
 David asked on Oct 15 to start Phase 3 now, in a fresh session. Spec: `docs/03-build-plan.md` → Phase 3; categories: `context/taxonomy.md`; thresholds: `AGENTS.md` → Triage.
+
+**Oct 15 session status:**
+- Jev API docs read (`docs.typesafe.ai`, OpenAPI at `api.typesafe.ai/openapi.json`). One endpoint, `POST /v1/systemone`: `{model, state, questions}`. Question types `noul` (yes/no → probability), `choice` (criteria map → choice + confidence + probabilities), `score` (ordered rubric → expected score + confidence). Models: `jev-latest` (served as `jev-1.13.0`), `jev-preview`. A 4-question triage call used about 550 input tokens and returned correct answers.
+- Options put to David: **A** instant `triage` edge function (recommended) vs. **B** batch routine. **Waiting on his pick.**
+- Evening reflection first runs (4:56 pm, 8:45 pm Oct 15) happen after this session started; still to check.
 
 **First, before building:**
 1. Check the first evening reflection runs (Oct 15: 4:56 pm and 8:45 pm) and David's thread reply. Fix the skill if needed.
