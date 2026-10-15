@@ -107,7 +107,7 @@ The assistant updates this table whenever I report progress, and **tells me if t
 | 2: Memory | **done** Oct 15 | Oct 12–18 | Oct 15 | Slack capture verified Oct 14; two-tool test passed Oct 15 (saved in Claude, found in ChatGPT desktop). Follow-up: ChatGPT iPhone needs Open Brain under Apps |
 | 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
 | 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |
-| 5: Cadence | in progress | Oct 26–31 | Oct 31 | Morning brief **live** Oct 15 (weekdays 3:47 am, now with look-ahead). Evening reflection built Oct 15 (5 pm prompt, 8:45 pm silent processing); connectors pending |
+| 5: Cadence | in progress | Oct 26–31 | Oct 31 | Morning brief **live** Oct 15 (weekdays 3:47 am, now with look-ahead). Evening reflection **live** Oct 15 (5 pm prompt, 8:45 pm silent processing) |
 | 5d: Day coach | not started | after Phase 4 (can be pulled forward) | Nov | Before/after check-ins, feelings check, look-ahead, coaching; data about where I get stuck |
 | 5b: Agent team | not started | Nov | Nov | After Phase 4; Linear is the handoff layer |
 | 2b: Data sources | not started | Oct 19–25 | Oct 25 | `docs/04-data-sources.md`. Needs exports from me |
