@@ -6,7 +6,7 @@ Registry of every system this OS can reach. Update a row whenever a connection i
 
 | Domain | Tool | Mechanism | Access | Last verified |
 |---|---|---|---|---|
-| Memory | Open Brain (Supabase project `personal-os`, ref `omotqffpafzzmwhezgki`, us-east-2) | mcp | read/write | schema live 2026-10-13; secrets set 2026-10-14; Claude/ChatGPT connectors pending |
+| Memory | Open Brain (Supabase project `personal-os`, ref `omotqffpafzzmwhezgki`, us-east-2) | mcp | read/write | schema live 2026-10-13; secrets set 2026-10-14; key rotated 2026-10-15; Claude connector (account-wide) and ChatGPT desktop MCP verified by two-tool test 2026-10-15; ChatGPT mobile pending |
 | Tasks | Linear (team `DAV`) | mcp / api | read/write | verified 2026-10-13 |
 | Chat front door | Slack (`#personal`, `#keystone`) | capture function + Slack connector | capture; morning brief posts to `#personal` | Slack app "Open Brain" live 2026-10-14; capture verified end to end; skips OS posts (v6) |
 | Email | Gmail | mcp | read; **drafts only** | available in Claude sessions |

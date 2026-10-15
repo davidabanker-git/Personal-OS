@@ -23,7 +23,7 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
 
 1. ~~**Supabase secrets**~~ **done Oct 14; `MCP_ACCESS_KEY` rotated Oct 15** (the old one had been emailed; the email is deleted). `OPENROUTER_API_KEY` (its own key, `personal-os-supabase`, $5 limit) and `MCP_ACCESS_KEY` are set. `TYPESAFE_API_KEY` waits for Phase 3; it will be a new key, separate from the cloud environment's.
 2. ~~**Slack app "Open Brain"**~~ **done Oct 14.** Created from a manifest; the event URL is verified. The `#keystone` test landed in `thoughts` (type task, domain keystone, embedded) with a `capture` event. Confirm the bot is also invited to `#personal`. The test thought was deleted Oct 14.
-3. **Connect Claude and ChatGPT** to `.../functions/v1/open-brain-mcp?key=<MCP_ACCESS_KEY>`, then run the two-tool test.
+3. ~~**Connect Claude and ChatGPT**~~ **done Oct 15; two-tool test passed.** Claude via claude.ai Connectors (account-wide, including cloud sessions). ChatGPT via the desktop app's MCP list (`x-brain-key` header), which isn't on the iPhone app. Still to do: add Open Brain under ChatGPT → Apps for mobile, and switch Open Brain on in the Morning brief routine's connectors. See `docs/learn/apps-and-surfaces.md`.
 4. **Open loop:** schedule a session with David Lai on the research and process-mapping tools.
    - Keystone meeting slot order: WFH days, early mornings, drive-time calls, then about 4 pm on an office day as a last resort.
 5. **Short list** of contacts for the first `automate-this` run (outreach drafts).

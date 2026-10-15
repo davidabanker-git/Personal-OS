@@ -152,3 +152,9 @@ Approved for read access alongside personal Drive. Needs setup.
 **Would change if:** routines get too costly or limiting. Then move to one dispatcher routine, or to Lane B for more jobs.
 
 **Also queued:** an `evaluate-tool` skill that gives a verdict (Adopt / Trial / Park / Skip) on new tools, plugins, MCPs and skills I come across.
+
+## 2026-10-15: Phase 2 (Memory) complete
+
+**What:** the two-tool test passed: a note saved from Claude was found from ChatGPT. Slack capture was verified on Oct 14. Done three days ahead of the Oct 18 plan; the overall finish stays Oct 31.
+
+**Follow-up:** ChatGPT's desktop MCP list isn't account-wide, so Open Brain also goes under ChatGPT → Apps for mobile.

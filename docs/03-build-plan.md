@@ -104,7 +104,7 @@ The assistant updates this table whenever I report progress, and **tells me if t
 |---|---|---|---|---|
 | 0: Foundations | **done** Oct 13 | Oct 8–11 | Oct 13 | Manual, Supabase, Linear (team DAV), Slack `#personal`/`#keystone`, OpenRouter and TypeSafe keys all in place; Slack test reported done |
 | 1: automate-this + interview | in progress | Oct 12–18 | Oct 18 | Both skills built and interview done Oct 13 (`context/how-i-work.md`); first real `automate-this` run pending |
-| 2: Memory | in progress | Oct 12–18 | Oct 18 | Schema and MCP function live Oct 13. Secrets set and Slack capture verified Oct 14 (phone → Brain in seconds). Next: connect Claude + ChatGPT, two-tool test |
+| 2: Memory | **done** Oct 15 | Oct 12–18 | Oct 15 | Slack capture verified Oct 14; two-tool test passed Oct 15 (saved in Claude, found in ChatGPT desktop). Follow-up: ChatGPT iPhone needs Open Brain under Apps |
 | 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
 | 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |
 | 5: Cadence | in progress | Oct 26–31 | Oct 31 | Morning brief **live** Oct 15 (weekdays 3:47 am). Next: evening reflection |
