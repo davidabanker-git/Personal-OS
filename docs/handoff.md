@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and `docs/03-build-plan.md`.
+Last updated: 2026-10-15. Read this first in a new session, then `AGENTS.md` and `docs/03-build-plan.md`.
 
 ## Where things stand
 
@@ -34,6 +34,23 @@ Last updated: 2026-10-14. Read this first in a new session, then `AGENTS.md` and
    - Claude: Settings → Privacy → Export data
    - Notion: a list of the pages and workspaces to include or skip
 7. **Decide the wiki model** (below). Recommendation: Nate's `wiki-compiler`.
+
+## Next build: Phase 3, Jev triage (kickoff notes)
+
+David asked on Oct 15 to start Phase 3 now, in a fresh session. Spec: `docs/03-build-plan.md` → Phase 3; categories: `context/taxonomy.md`; thresholds: `AGENTS.md` → Triage.
+
+**First, before building:**
+1. Check the first evening reflection runs (Oct 15: 4:56 pm and 8:45 pm) and David's thread reply. Fix the skill if needed.
+2. Read Jev's current API docs (TypeSafe, `api.typesafe.ai/v1/systemone`; early access). Don't build from memory.
+
+**Design to propose (one or two options, recommend one):**
+- **A decision interface:** `decide(question, options) → {answer, confidence}`. Jev first, with a cheap OpenRouter model as fallback, so the model can be swapped (`docs/02-reference-systems.md` §4).
+- **Where it runs (Lane B):** a `triage` edge function called on every new thought (database webhook or `pg_net` on `thoughts` insert), so Slack *and* Claude/ChatGPT captures are all triaged. Skip OS posts and thread replies to check-ins.
+- **Questions per capture:** actionable? domain/area/project? person involved? needs David's decision? urgency?
+- **Confidence routing:** high → auto-file (metadata, plus a Linear task when actionable); medium → approval (a one-tap thread reply from the bot, plus a Linear "Needs me" view); low → ask in the thread. Log every decision and correction to `events`. Corrections come from David's thread replies ("no, personal").
+- **David's one-time setup:** a new TypeSafe key (`personal-os-supabase`) as the Supabase secret `TYPESAFE_API_KEY`; and probably a Linear API key (`LINEAR_API_KEY`) for the function to create tasks. Ask first and give phone-friendly steps.
+
+**Done when:** after one week of real captures, at least 70% are auto-filed correctly. Thresholds are tuned once.
 
 ## Data sources
 
@@ -98,4 +115,6 @@ Then reply with three things only:
 - Any decision you need from me (one question at a time).
 
 Don't rebuild anything that's already done. Update docs/handoff.md at the end of every session.
+
+Today's focus: Phase 3 Jev triage (see "Next build" in the handoff).
 ```
