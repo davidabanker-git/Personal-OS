@@ -39,6 +39,7 @@ This file is the canonical manual. `CLAUDE.md` imports it. Codex and other agent
 | `context/how-i-work.md` | Rhythms, recurring decisions, dependencies, friction (from the how-I-work interview) |
 | `context/taxonomy.md` | Areas, projects, people categories, used for triage |
 | `connections.md` | Every system this OS can reach, and how |
+| `docs/workflows.md` | The workflow standard (two lanes, five parts) and the registry of every recurring workflow |
 | `decisions/log.md` | Append-only decisions and why |
 | `docs/` | Vision, reference research, build plan, `learn/` notes, `handoff.md` (current state for a new session) |
 | `.claude/skills/` | Skills in `SKILL.md` format, created as they're built. Cloud sessions load them from the repo. `.agents/skills` will be a symlink, so Codex sees the same files. |
@@ -135,7 +136,7 @@ Propose promotions from observed to approved in the weekly review. Never promote
 
 ## Cadence
 
-These run at L1–L2 until approved otherwise:
+Every recurring or triggered workflow follows `docs/workflows.md`: it works anywhere (cloud only), the logic lives in a skill, the routine is a thin trigger, and it has a row in the registry. These run at L1–L2 until approved otherwise:
 
 - **Morning plan-ahead brief:** prepared overnight; ready before about 5:00 am Central.
 - **Meeting prep.**

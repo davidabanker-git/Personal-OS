@@ -138,3 +138,17 @@ Approved for read access alongside personal Drive. Needs setup.
 **Why:** Slack is good for one decision at a time, but choosing among many opportunities and seeing the whole picture needs a page. The loop keeps the dashboard improving without me opening code.
 
 **Would change if:** Slack plus Linear turn out to be enough, or artifacts can't show live data reliably.
+
+## 2026-10-14: One standard for every workflow
+
+**What:** recurring and triggered work follows `docs/workflows.md`.
+- **Rule zero, works anywhere:** cloud only; nothing depends on my PC or a desktop app.
+- **Two lanes:** agent workflows (judgment, writing) are a skill plus a Claude routine; plumbing (instant, frequent, deterministic) is a Supabase function.
+- **Five parts:** skill, thin routine, access attached once by me, output to Slack/Linear/Brain with a known header, and a receipt so failures reach me.
+- **One registry** of every workflow.
+
+**Why:** the morning brief is the first of many scheduled workflows. A standard keeps each new one cheap to add, easy to swap to another model, and visible in one place.
+
+**Would change if:** routines get too costly or limiting. Then move to one dispatcher routine, or to Lane B for more jobs.
+
+**Also queued:** an `evaluate-tool` skill that gives a verdict (Adopt / Trial / Park / Skip) on new tools, plugins, MCPs and skills I come across.
