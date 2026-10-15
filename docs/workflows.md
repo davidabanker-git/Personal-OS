@@ -43,5 +43,5 @@ Every part runs in the cloud. No step depends on my PC, a desktop app or a local
 
 | Workflow | Lane | Skill | Trigger | Connectors | Output | Autonomy | Status |
 |---|---|---|---|---|---|---|---|
-| Morning brief | A | `morning-brief` | Weekdays 3:47 am Central (`trig_01YYZoWF38bE9ugc72SWwkxe`) | Calendar, Gmail, Linear, Slack | `#personal` | L1 | **Live Oct 15.** Connectors and notifications attached; test run posted in about 37s (about $0.37 at list price) |
+| Morning brief | A | `morning-brief` | Weekdays 3:47 am Central (`trig_01YYZoWF38bE9ugc72SWwkxe`) | Calendar, Gmail, Linear, Slack, Open Brain | `#personal` | L1 | **Live Oct 15.** Connectors and notifications attached; test run posted in about 37s (about $0.37 at list price) |
 | Slack capture | B | — (`slack-capture` function) | Slack event, instant | Slack app, OpenRouter | Brain + thread reply | L3 (files captures) | Live since Oct 14 |
