@@ -43,5 +43,7 @@ Every part runs in the cloud. No step depends on my PC, a desktop app or a local
 
 | Workflow | Lane | Skill | Trigger | Connectors | Output | Autonomy | Status |
 |---|---|---|---|---|---|---|---|
-| Morning brief | A | `morning-brief` | Weekdays 3:47 am Central (`trig_01YYZoWF38bE9ugc72SWwkxe`) | Calendar, Gmail, Linear, Slack | `#personal` | L1 | Built; **needs repo + connectors attached** (Oct 15 run stopped safely without them) |
-| Slack capture | B | — (`slack-capture` function) | Slack event, instant | Slack app, OpenRouter | Brain + thread reply | L3 (files captures) | Live since Oct 14 |
+| Morning brief | A | `morning-brief` | Weekdays 3:47 am Central (`trig_01YYZoWF38bE9ugc72SWwkxe`) | Calendar, Gmail, Linear, Slack, Open Brain | `#personal` | L1 | **Live Oct 15.** Connectors and notifications attached; test run posted in about 37s (about $0.37 at list price) |
+| Evening reflection (prompt) | A | `evening-reflection` (prompt) | Weekdays 4:56 pm Central (`trig_018MvjaBArTEp6kCt9dRHsQh`) | Slack, Gmail, Calendar, Linear, Open Brain | `#personal` thread | L1 | Built Oct 15; **needs connectors switched on** |
+| Reflection processing | A | `evening-reflection` (process) | Weekdays 8:45 pm Central, silent (`trig_01TqQ1JqXm5uet5ApXJ8Pnz6`) | Slack, Gmail, Calendar, Linear, Open Brain | Brain (`Reflection`, `Overnight results`), Gmail drafts | L2 | Built Oct 15; **needs connectors switched on** |
+| Slack capture | B | — (`slack-capture` function) | Slack event, instant | Slack app, OpenRouter | Brain + thread reply | L3 (files captures) | Live since Oct 14; thread replies captured with ✓ since Oct 15 (v8) |

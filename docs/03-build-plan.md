@@ -104,10 +104,11 @@ The assistant updates this table whenever I report progress, and **tells me if t
 |---|---|---|---|---|
 | 0: Foundations | **done** Oct 13 | Oct 8–11 | Oct 13 | Manual, Supabase, Linear (team DAV), Slack `#personal`/`#keystone`, OpenRouter and TypeSafe keys all in place; Slack test reported done |
 | 1: automate-this + interview | in progress | Oct 12–18 | Oct 18 | Both skills built and interview done Oct 13 (`context/how-i-work.md`); first real `automate-this` run pending |
-| 2: Memory | in progress | Oct 12–18 | Oct 18 | Schema and MCP function live Oct 13. Secrets set and Slack capture verified Oct 14 (phone → Brain in seconds). Next: connect Claude + ChatGPT, two-tool test |
+| 2: Memory | **done** Oct 15 | Oct 12–18 | Oct 15 | Slack capture verified Oct 14; two-tool test passed Oct 15 (saved in Claude, found in ChatGPT desktop). Follow-up: ChatGPT iPhone needs Open Brain under Apps |
 | 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
 | 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |
-| 5: Cadence | in progress | Oct 26–31 | Oct 31 | Morning brief built Oct 14 (skill + preview posted to `#personal`); schedule next |
+| 5: Cadence | in progress | Oct 26–31 | Oct 31 | Morning brief **live** Oct 15 (weekdays 3:47 am, now with look-ahead). Evening reflection built Oct 15 (5 pm prompt, 8:45 pm silent processing); connectors pending |
+| 5d: Day coach | not started | after Phase 4 (can be pulled forward) | Nov | Before/after check-ins, feelings check, look-ahead, coaching; data about where I get stuck |
 | 5b: Agent team | not started | Nov | Nov | After Phase 4; Linear is the handoff layer |
 | 2b: Data sources | not started | Oct 19–25 | Oct 25 | `docs/04-data-sources.md`. Needs exports from me |
 | 5c: Visual home + change loop | not started | after Phase 4 | Nov | Artifact first; first view is Opportunities (readiness, one-time vs repeatable, delegate or build) |
@@ -308,6 +309,32 @@ Dedicated agents, each with one job and the model that fits it. The orchestrator
 5. The agent builds on a branch, shows the result, and publishes after my OK. A receipt goes in the Linear task.
 
 **Done when:** the Opportunities view shows real items from one discovery pass, I delegate one from the page, and one change request goes from comment to approved build.
+
+### Phase 5d: Day coach (after Phase 4; can be pulled forward)
+
+**Purpose:** an assistant that walks with me through the day, not just at its edges. It checks in before and after the things that matter, notices resistance, coaches me through it, and learns what gets me stuck, what I do well, what I enjoy, and what I avoid.
+
+**What it does:**
+| When | Check-in | Example |
+|---|---|---|
+| Days ahead | **Look ahead** (already in the morning brief) | "Interview Friday 3:00: block 30 min of prep Thursday morning." |
+| About 15 min before | **Feelings check** | "Prospect call with Tommy in 15. How are you feeling about it, 1–5 and a word?" If the answer is low or anxious, it offers one small move: a 3-line plan, the first sentence to say, or a reframe from my own notes. |
+| About 10 min after | **Debrief** | "How did it go, 1–5? Anything to capture or follow up?" |
+| Evening | **Reflection** (built) | Patterns from the day's check-ins feed the friction report. |
+| Friday | **Weekly review** | What I avoided, what energized me, where predictions (feeling before) didn't match outcomes (rating after). |
+
+**Rules:** at most 3 check-ins a day, chosen by importance (Keystone, prospects, interviews, family logistics; not routine day-job meetings). Nothing during quiet hours. Every check-in answers with one tap or one line, by voice.
+
+**How it works (fits `docs/workflows.md`):**
+- **Planning (Lane A):** the morning brief picks the day's check-in moments from Calendar and Linear and schedules them.
+- **Timing (Lane B):** a `checkins` table in the Brain plus a Supabase scheduler (`pg_cron`) every 5 minutes posts due check-ins **from the Open Brain bot**, so Slack actually notifies me. Messages the Slack connector posts appear as me and don't ping my phone.
+- **Write path:** a new Open Brain tool, `schedule_checkin(due_at, kind, event, question)`, so any agent can schedule one.
+- **Answers:** my thread replies are already captured with ✓ (Slack capture v8), linked to the check-in.
+- **Live coaching (v2):** when a feelings answer is low, Slack capture replies within seconds with one coaching move (a small model through OpenRouter), drawing on my Obsidian notes once the vault is synced.
+
+**Data (Supabase is canonical):** `checkins` rows hold kind, event, scheduled and answered times, feeling before (1–5), rating after (1–5), my words, and tags (stuck, strength, enjoy, fear, avoid). The weekly review mines them; the wiki compiler can later write an "about me" page to Obsidian.
+
+**Done when:** for one week, 2–3 check-ins a day arrive on time, I answer most of them from my phone, and the Friday review names one pattern I didn't know about.
 
 ### Wiki track: Obsidian + LLM wiki (parallel)
 

@@ -15,10 +15,10 @@ All times are America/Chicago. "Today" is the date in Central time.
 
 | Source | Pull |
 |---|---|
-| Google Calendar | Today's events on the primary calendar. Also tomorrow before 9:00 if anything is there. |
+| Google Calendar | Today's events on the primary calendar, tomorrow before 9:00, and the **next 7 days** for anything that needs prep (interviews, client or prospect calls, deadlines). |
 | Gmail | `in:inbox newer_than:3d -from:me -category:promotions -category:social -category:updates -category:forums`. Keep threads where the last message isn't from David and someone asks him something or is waiting on him. Also catch **commitments in email that aren't on the calendar** (for example, "let's prep Thursday at 4:30"). Skip newsletters, receipts, security alerts and automated mail. |
 | Linear (team `DAV`) | Open issues (not Done or Canceled) that are due within 2 days, are Urgent or High priority, or carry a `needs-me` label. |
-| Open Brain connector (if connected) | Captures from the last 24 hours with type `task`, and any CRM follow-ups due today or overdue. If the connector isn't there, skip it silently. |
+| Open Brain connector (if connected) | Captures from the last 24 hours with type `task`, any CRM follow-ups due today or overdue, and last night's `Overnight results · <date>` thought. If the connector isn't there, skip it silently. |
 | This repo | `context/priorities.md` (habits, Keystone build queue), `context/how-i-work.md` (§2, priority rule), and `docs/handoff.md` (David's open action items). |
 
 ## 2. Decide the Top 3
@@ -55,19 +55,26 @@ _Open for Keystone: 4:30–7:00_
 • Tommy Flynn: asked for a time to talk (email, 2 days)
 • DAV-12 Draft outreach list (due today)
 
+**Overnight**
+• 3 short-list contacts researched; openers in Gmail drafts
+
+**Look ahead**
+• Fri 3:00 interview: block 30 min of prep tomorrow morning
+
 **Keystone queue:** next is `process-map`. When do you want to build it?
 
-**Habits:** workout · meditate · reflection at 5:30
+**Habits:** workout · meditate · reflection at 5:00
 ```
 
 Rules:
 - Leave out any empty section. Three bullets at most per section.
+- **Look ahead** flags only events in the next 7 days that need prep, each with a concrete prep step and when to do it. Skip routine meetings.
 - Plain words. Don't show the machinery (no tool names, queries or counts).
 - Keep calendar titles short. Day-job meetings show as a title and a time only.
 - If a source failed, add one last line: `_Couldn't reach <Gmail>._`
 - Never quote anything that looks like a password, key, code or account number, even from David's own notes.
 - Personal details stay fine here (`#personal` is private). Day-job details stay at title-and-time level.
-- Mention the Keystone queue item at most once per brief, and only if it hasn't been built.
+- Always include the Keystone queue line: the first item in `context/priorities.md` → Keystone build queue whose skill folder (`.claude/skills/<name>/`) doesn't exist yet. One line, once per brief.
 
 ## 4. Post
 
@@ -76,5 +83,4 @@ Send it to Slack `#personal` (channel ID `C0C8Y3YFH8U`) as one message. If the p
 ## Later (not in v1)
 
 - Log a `brief_sent` event to the Brain once the Open Brain connector has a write path for events.
-- Fold in overnight queue results (Phase 5).
 - Save opportunities as structured records for the Phase 5c dashboard.

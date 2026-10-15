@@ -152,3 +152,23 @@ Approved for read access alongside personal Drive. Needs setup.
 **Would change if:** routines get too costly or limiting. Then move to one dispatcher routine, or to Lane B for more jobs.
 
 **Also queued:** an `evaluate-tool` skill that gives a verdict (Adopt / Trial / Park / Skip) on new tools, plugins, MCPs and skills I come across.
+
+## 2026-10-15: Phase 2 (Memory) complete
+
+**What:** the two-tool test passed: a note saved from Claude was found from ChatGPT. Slack capture was verified on Oct 14. Done three days ahead of the Oct 18 plan; the overall finish stays Oct 31.
+
+**Mobile:** ChatGPT's custom MCP servers are web/desktop only. On the phone, the Brain is reached through Claude (iPhone) and Slack.
+
+## 2026-10-15: Evening reflection is a conversation, at 5 pm
+
+**What:** at 5 pm the OS posts a short check-in (Top 3 status, one friction with a fix, a numbered overnight queue, "how did today go, 1–5"). I reply in the thread by voice or text. At 8:45 pm a silent agent saves the reflection and runs only what I approved (research and drafts). Results appear in the morning brief.
+
+**Why:** a post I only read wouldn't build the habit or catch friction. Reply-in-thread keeps it to one decision, and quiet hours stay quiet.
+
+## 2026-10-15: Day coach goes on the roadmap (Phase 5d)
+
+**What:** check-ins before (feelings) and after (debrief) the day's important moments, look-ahead prep flags, and coaching when I'm stuck. At most 3 a day. Records live in a Supabase `checkins` table; the bot posts them so Slack pings me.
+
+**Why:** the records grow more valuable over time. They show where I get stuck, what I do well, what I enjoy, and what I avoid, which is the data a coach needs.
+
+**When:** after Phase 4, or sooner if the evening reflection sticks. Look-ahead is already in the morning brief.
