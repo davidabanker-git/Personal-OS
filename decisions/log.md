@@ -178,3 +178,9 @@ Approved for read access alongside personal Drive. Needs setup.
 **What:** whenever a fresh session is needed, the assistant pastes the complete starter prompt in chat as one copy-ready block. It never points me to a file to copy from.
 
 **Why:** opening a document to copy text is friction, and friction is what kills these systems.
+
+## 2026-10-15: Docs-only PRs merge without asking
+
+**What:** the assistant may merge PRs that only change docs (handoff, decisions, tracker, plans, learn notes) and tell me afterward. PRs that change code, skills, functions or settings still wait for my OK.
+
+**Why:** I approved 7 docs-only merges in one day; the approval added friction, not safety.

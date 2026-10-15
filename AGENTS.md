@@ -65,6 +65,7 @@ If a fact exists in a canonical source, link to it instead of copying it here.
 | Create and update Linear tasks; comment receipts | Delete or archive anything outside this repo |
 | Capture to and organize the Brain | Spend money, billing, subscriptions |
 | Edit files in this repo on a branch | Account settings, credentials, API keys |
+| Merge docs-only PRs (handoff, decisions, tracker, plans, learn notes) and tell me after | Merge anything that changes code, skills, functions or settings |
 | Propose automations and skills | Anything that affects another person, or acts in my name |
 
 - If the right permission level is unclear, treat it as "ask first."
