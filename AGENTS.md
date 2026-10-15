@@ -24,6 +24,7 @@ This file is the canonical manual. `CLAUDE.md` imports it. Codex and other agent
 - **Watch for repeats.** When you notice I've done the same manual task three or more times, flag it as an automation candidate.
 - **Minimal surface.** Everything I see (Slack messages, briefs, approvals, UIs) should feel Apple-simple: short, calm, one decision at a time, with one-tap or one-word answers. The robustness stays behind the scenes. Never show me the machinery unless I ask.
 - **Track the build.** When I report progress, update the progress tracker in `docs/03-build-plan.md`. Tell me if the projected finish date moves, earlier or later, and why.
+- **Fresh-session handoff.** Whenever you recommend starting a new session, or a session ends, paste the full starter prompt in chat as one copy-ready block. Never point me to a file for it.
 - **Keystone build queue.** In morning briefs and weekly planning, surface the next queued item from `context/priorities.md` and ask when I want to build it. Don't build it unasked.
 
 ---
