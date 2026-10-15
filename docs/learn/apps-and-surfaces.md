@@ -18,3 +18,16 @@
 - In the ChatGPT desktop MCP form: use Streamable HTTP, the plain URL, and an `x-brain-key` header, so the password isn't in the URL.
 
 **Teach it in one line:** a connector lives either with your account (everywhere) or with one app on one device (only there). Pick account-level.
+
+## Where skills, rules and settings live (checked against Claude Code docs, Oct 15)
+
+| Layer | Holds | Reaches | Set up |
+|---|---|---|---|
+| **Account (claude.ai)** | Skills enabled for my account, connectors, profile preferences | Claude chat, Cowork, cloud Claude Code sessions, **routines**, and terminal sessions signed in with the account | claude.ai → Customize → Skills (upload) and Connectors |
+| **Project (a repo)** | `AGENTS.md`/`CLAUDE.md`, `.claude/skills/`, `.claude/settings.json` | Sessions on that repo | Commit to the repo |
+| **Environment** | The cloud machine: network policy, secrets, setup script | Sessions that pick it | claude.ai/code environment settings; not where skills go |
+| **Personal folder** | `~/.claude/skills` | One computer only; **not** cloud or Cowork | Skip it; it breaks "works anywhere" |
+
+**Attaching several repos to one session** is for work that spans repos (for example, Personal OS plus a Keystone repo). It isn't the way to share skills: I'd have to remember to attach the skills repo every time, and routines wouldn't have it.
+
+**Plan:** git stays the source of truth. When a second project needs shared skills, create a `skills` repo, and publish the cross-project ones (e.g., `automate-this`, `evaluate-tool`, `process-map`) to my claude.ai account so they load everywhere. Project-only skills stay in their repo.
