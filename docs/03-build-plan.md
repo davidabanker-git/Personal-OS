@@ -11,6 +11,7 @@ Status: draft v1, 2026-10-08. Builds on `01-vision.md` (decisions) and `02-refer
 3. **Model-agnostic by construction.** Memory, tasks and skills sit behind open interfaces: MCP, APIs, and `SKILL.md`/`AGENTS.md` files. The orchestrator can change (Claude today, maybe Grok or another later) without a rebuild.
 4. **Explain-it-back.** Every phase produces a short `docs/learn/<topic>.md` note covering what the tool does, how the data flows, and how I'd teach it to someone else. This serves the learning goal and becomes Keystone teaching material.
 5. **Time-boxed.** About one phase per week, with maintenance done as voice sessions.
+6. **Works anywhere.** Every part runs in the cloud; no step depends on a local machine or a desktop app. Recurring and triggered work follows the workflow standard in `docs/workflows.md` (two lanes, five parts, one registry).
 
 ---
 
@@ -361,6 +362,7 @@ Use only those core operations at first; skip the plugin's extras.
 | Neo4j | Parked | Optional read-only projection of the Supabase graph, for learning Cypher |
 | Live always-on session (Telegram, Discord or iMessage via Channels) | Parked | Needs a computer kept running |
 | Passive time tracking | Parked | Too hard to do well on iPhone |
+| `evaluate-tool` skill | Queued | I drop in a tool, plugin, MCP or skill idea (`tool:` in Slack). It researches fit (overlap, works anywhere, model-agnostic, cost, security, effort, real problem?) and returns Adopt / Trial / Park / Skip. Parked ideas resurface in the weekly review |
 | Day-job task module | Later | Lightweight to-do and project list for Ensemble work, kept separate from day-job systems (corporate security) |
 | Conversational scheduling with rules | Later | Comes after Phase 5, using the calendar connector plus `context/scheduling-rules.md` |
 
