@@ -67,7 +67,7 @@ Rules:
 - If a source failed, add one last line: `_Couldn't reach <Gmail>._`
 - Never quote anything that looks like a password, key, code or account number, even from David's own notes.
 - Personal details stay fine here (`#personal` is private). Day-job details stay at title-and-time level.
-- Mention the Keystone queue item at most once per brief, and only if it hasn't been built.
+- Always include the Keystone queue line: the first item in `context/priorities.md` → Keystone build queue whose skill folder (`.claude/skills/<name>/`) doesn't exist yet. One line, once per brief.
 
 ## 4. Post
 

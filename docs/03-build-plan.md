@@ -107,7 +107,7 @@ The assistant updates this table whenever I report progress, and **tells me if t
 | 2: Memory | in progress | Oct 12–18 | Oct 18 | Schema and MCP function live Oct 13. Secrets set and Slack capture verified Oct 14 (phone → Brain in seconds). Next: connect Claude + ChatGPT, two-tool test |
 | 3: Jev triage | not started | Oct 19–25 | Oct 25 | |
 | 4: Tasks and receipts | not started | Oct 19–25 | Oct 25 | |
-| 5: Cadence | in progress | Oct 26–31 | Oct 31 | Morning brief built Oct 14 (skill + preview posted to `#personal`); schedule next |
+| 5: Cadence | in progress | Oct 26–31 | Oct 31 | Morning brief **live** Oct 15 (weekdays 3:47 am). Next: evening reflection |
 | 5b: Agent team | not started | Nov | Nov | After Phase 4; Linear is the handoff layer |
 | 2b: Data sources | not started | Oct 19–25 | Oct 25 | `docs/04-data-sources.md`. Needs exports from me |
 | 5c: Visual home + change loop | not started | after Phase 4 | Nov | Artifact first; first view is Opportunities (readiness, one-time vs repeatable, delegate or build) |
