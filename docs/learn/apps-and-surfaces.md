@@ -13,7 +13,8 @@
 
 **What we learned (Oct 15):**
 - Open Brain added in claude.ai Connectors appeared in cloud Claude Code at once.
-- Open Brain added in the ChatGPT desktop app's **MCPs** list worked on desktop but not on the iPhone app. For ChatGPT on the phone, add it under **Apps** (account-level) too.
+- Open Brain added in the ChatGPT desktop app's **MCPs** list worked on desktop but not on the iPhone app.
+- Per OpenAI's help center (checked Oct 15), custom MCP servers in ChatGPT (chatgpt.com → Plugins → + → Add custom MCP server) are **web only, not mobile**. So on the phone, reach the Brain through **Claude on iPhone** or **Slack**.
 - In the ChatGPT desktop MCP form: use Streamable HTTP, the plain URL, and an `x-brain-key` header, so the password isn't in the URL.
 
 **Teach it in one line:** a connector lives either with your account (everywhere) or with one app on one device (only there). Pick account-level.

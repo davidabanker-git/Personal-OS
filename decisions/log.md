@@ -157,4 +157,4 @@ Approved for read access alongside personal Drive. Needs setup.
 
 **What:** the two-tool test passed: a note saved from Claude was found from ChatGPT. Slack capture was verified on Oct 14. Done three days ahead of the Oct 18 plan; the overall finish stays Oct 31.
 
-**Follow-up:** ChatGPT's desktop MCP list isn't account-wide, so Open Brain also goes under ChatGPT → Apps for mobile.
+**Mobile:** ChatGPT's custom MCP servers are web/desktop only. On the phone, the Brain is reached through Claude (iPhone) and Slack.
