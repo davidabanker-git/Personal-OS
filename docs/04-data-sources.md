@@ -22,6 +22,18 @@ source → landing (raw, with a reference) → distill (atomize, extract type, p
 2. **Same source item:** `source_ref` is unique per source, so re-running an import is safe.
 3. **Near-duplicate:** semantic similarity of 0.92 or higher against existing thoughts. The two are merged (metadata union, oldest date kept) and a `merge` event is logged. Borderline cases go to the review queue.
 
+**Depth varies by conversation (approved by David, 2026-10-15).** Don't use a fixed 2–5 facts per chat.
+- A cheap first pass scores each conversation on **depth** (one-off question vs. a long exploration) and **topic weight**. Mindfulness, thought work, emotional management and personal growth weigh most, followed by Keystone and how I work.
+- **Light:** skip, or keep 0–2 facts.
+- **Standard:** 2–5 facts.
+- **Deep exploration:** keep more, about 5–15 facts, plus one short synthesis note in my words that captures the insight and how I got there. Also link back to the raw conversation (`source_ref`) so the full text is one step away.
+
+**Redundancy means evolving understanding, not duplicates.** When a new fact restates an older one, deepened or reworded:
+- Keep both, and link them as `refines` (new → old) in the graph.
+- Treat the newest as current. Older versions stay as history, so I can see how my thinking grew.
+- Merge only true duplicates: same point, same depth.
+- The wiki compiler later writes one page per idea, showing the current understanding with an "earlier takes" trail.
+
 **People are resolved to one CRM record** using name, email and aliases (for example, "Tommy" = "Tommy Flynn"). Unsure matches go to review.
 
 ## Source by source
