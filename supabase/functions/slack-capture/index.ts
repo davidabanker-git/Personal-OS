@@ -1,4 +1,6 @@
 // Slack capture: messages in #personal / #keystone become Open Brain thoughts.
+// Thread replies (answers to reflections and check-ins) are captured too, linked
+// to their parent by thread_ts, with a short ✓ instead of the full confirmation.
 // Based on OB1 integrations/slack-capture. Changes: verifies Slack's request
 // signature (fails closed), covers two channels and tags the domain, dedups via
 // upsert_thought, acks within Slack's 3s window, and logs a capture event.
@@ -118,11 +120,14 @@ function confirmation(meta: Record<string, unknown>): string {
   return text;
 }
 
-async function capture(text: string, channel: string, ts: string): Promise<void> {
+async function capture(text: string, channel: string, ts: string, threadTs?: string): Promise<void> {
   const domain = CHANNELS[channel];
   try {
     const [embedding, extracted] = await Promise.all([getEmbedding(text), extractMetadata(text)]);
-    const metadata = { ...extracted, source: "slack", domain, slack_channel: channel, slack_ts: ts };
+    const metadata = {
+      ...extracted, source: "slack", domain, slack_channel: channel, slack_ts: ts,
+      ...(threadTs ? { slack_thread_ts: threadTs } : {}),
+    };
 
     const { data, error } = await supabase.rpc("upsert_thought", {
       p_content: text,
@@ -139,14 +144,14 @@ async function capture(text: string, channel: string, ts: string): Promise<void>
       source: "slack",
       actor: "david",
       thought_id: thoughtId,
-      payload: { domain, channel, type: extracted.type ?? null },
+      payload: { domain, channel, type: extracted.type ?? null, thread_ts: threadTs ?? null },
     });
-    await replyInThread(channel, ts, confirmation(extracted));
+    await replyInThread(channel, threadTs ?? ts, threadTs ? "✓ Saved" : confirmation(extracted));
   } catch (err) {
     console.error("capture failed:", err);
     // Best effort: neither of these may throw out of the background task.
     await Promise.allSettled([
-      replyInThread(channel, ts, "Couldn't save that one. I'll show it in the next brief."),
+      replyInThread(channel, threadTs ?? ts, "Couldn't save that one. I'll show it in the next brief."),
       supabase.from("events").insert({
         event_type: "capture_failed",
         source: "slack",
@@ -187,12 +192,13 @@ Deno.serve(async (req: Request): Promise<Response> => {
 
   const event = body.event;
   const isCapture = event && event.type === "message" && !event.subtype && !event.bot_id &&
-    !event.thread_ts && event.channel in CHANNELS && typeof event.text === "string" &&
+    event.channel in CHANNELS && typeof event.text === "string" &&
     event.text.trim() !== "" && !isOsPost(event.text);
   if (!isCapture) return new Response("ok");
 
   // Ack now; finish after the response so Slack's 3s window isn't hit.
-  const work = capture(event.text.trim(), event.channel, event.ts);
+  const threadTs = event.thread_ts && event.thread_ts !== event.ts ? event.thread_ts : undefined;
+  const work = capture(event.text.trim(), event.channel, event.ts, threadTs);
   // deno-lint-ignore no-explicit-any
   (globalThis as any).EdgeRuntime?.waitUntil(work);
   return new Response("ok");
