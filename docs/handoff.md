@@ -100,7 +100,7 @@ Two patterns. They differ on what is canonical.
 Paste this exactly:
 
 ```
-Continue building my Personal OS in davidabanker-git/Personal-OS (start from main; PR #2 is merged).
+Continue building my Personal OS in davidabanker-git/Personal-OS (start from main).
 
 Read these first, in order:
 1. docs/handoff.md (current state, my action items, pending decisions, gotchas)

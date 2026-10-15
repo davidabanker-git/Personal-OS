@@ -24,6 +24,7 @@ This file is the canonical manual. `CLAUDE.md` imports it. Codex and other agent
 - **Watch for repeats.** When you notice I've done the same manual task three or more times, flag it as an automation candidate.
 - **Minimal surface.** Everything I see (Slack messages, briefs, approvals, UIs) should feel Apple-simple: short, calm, one decision at a time, with one-tap or one-word answers. The robustness stays behind the scenes. Never show me the machinery unless I ask.
 - **Track the build.** When I report progress, update the progress tracker in `docs/03-build-plan.md`. Tell me if the projected finish date moves, earlier or later, and why.
+- **Fresh-session handoff.** Whenever you recommend starting a new session, or a session ends, paste the full starter prompt in chat as one copy-ready block. Never point me to a file for it.
 - **Keystone build queue.** In morning briefs and weekly planning, surface the next queued item from `context/priorities.md` and ask when I want to build it. Don't build it unasked.
 
 ---
@@ -64,6 +65,7 @@ If a fact exists in a canonical source, link to it instead of copying it here.
 | Create and update Linear tasks; comment receipts | Delete or archive anything outside this repo |
 | Capture to and organize the Brain | Spend money, billing, subscriptions |
 | Edit files in this repo on a branch | Account settings, credentials, API keys |
+| Merge docs-only PRs (handoff, decisions, tracker, plans, learn notes) and tell me after | Merge anything that changes code, skills, functions or settings |
 | Propose automations and skills | Anything that affects another person, or acts in my name |
 
 - If the right permission level is unclear, treat it as "ask first."

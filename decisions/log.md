@@ -172,3 +172,15 @@ Approved for read access alongside personal Drive. Needs setup.
 **Why:** the records grow more valuable over time. They show where I get stuck, what I do well, what I enjoy, and what I avoid, which is the data a coach needs.
 
 **When:** after Phase 4, or sooner if the evening reflection sticks. Look-ahead is already in the morning brief.
+
+## 2026-10-15: Starter prompts always come in chat
+
+**What:** whenever a fresh session is needed, the assistant pastes the complete starter prompt in chat as one copy-ready block. It never points me to a file to copy from.
+
+**Why:** opening a document to copy text is friction, and friction is what kills these systems.
+
+## 2026-10-15: Docs-only PRs merge without asking
+
+**What:** the assistant may merge PRs that only change docs (handoff, decisions, tracker, plans, learn notes) and tell me afterward. PRs that change code, skills, functions or settings still wait for my OK.
+
+**Why:** I approved 7 docs-only merges in one day; the approval added friction, not safety.
