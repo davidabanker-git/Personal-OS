@@ -1,4 +1,6 @@
-// Vendored unmodified from OB1 server/index.ts (NateBJones-Projects/OB1 @ 238df6c, 2026-09-10).
+// Vendored from OB1 server/index.ts (NateBJones-Projects/OB1 @ 238df6c, 2026-09-10).
+// One local change (2026-10-20, Phase 3): capture_thought calls the triage
+// function after saving and appends its filing line. Search "triage" to find it.
 // Auth: requests need ?key= or x-brain-key matching the MCP_ACCESS_KEY secret; deploy with verify_jwt off.
 
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
@@ -44,6 +46,24 @@ function thoughtTitle(content: string, createdAt?: string): string {
 
 function thoughtUrl(id: string): string {
   return `${CITATION_BASE_URL.replace(/\/$/, "")}/${id}`;
+}
+
+// Local change: files the capture via the triage function. Returns its line
+// ("✓ Keystone · …" or a question, which is also posted to Slack), or null.
+async function triageCapture(thoughtId: string): Promise<string | null> {
+  try {
+    const r = await fetch(`${SUPABASE_URL}/functions/v1/triage`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ action: "triage", thought_id: thoughtId, origin: "mcp" }),
+      signal: AbortSignal.timeout(10_000),
+    });
+    if (!r.ok) return null;
+    const d = await r.json();
+    return typeof d.reply === "string" ? d.reply : null;
+  } catch {
+    return null;
+  }
 }
 
 async function getEmbedding(text: string): Promise<number[]> {
@@ -489,12 +509,15 @@ function buildServer(): McpServer {
 
         const meta = metadata as Record<string, unknown>;
         let confirmation = `Captured as ${meta.type || "thought"}`;
+        const triaged = await triageCapture(thoughtId);
         if (Array.isArray(meta.topics) && meta.topics.length)
           confirmation += ` — ${(meta.topics as string[]).join(", ")}`;
         if (Array.isArray(meta.people) && meta.people.length)
           confirmation += ` | People: ${(meta.people as string[]).join(", ")}`;
         if (Array.isArray(meta.action_items) && meta.action_items.length)
           confirmation += ` | Actions: ${(meta.action_items as string[]).join("; ")}`;
+
+        if (triaged) confirmation += `\nTriage: ${triaged}`;
 
         return {
           content: [{ type: "text" as const, text: confirmation }],

@@ -15,7 +15,7 @@ Registry of every system this OS can reach. Update a row whenever a connection i
 | Files | Google Drive (company) | mcp | read | approved; needs setup |
 | Notes | Notion | mcp | read | available in Claude sessions |
 | Reflections | Obsidian vault | import script | read | trial pending |
-| Decisions | Jev (TypeSafe) | api (`api.typesafe.ai/v1/systemone`) | call | key works in Claude sessions; store as a Supabase secret in Phase 2 |
+| Decisions | Jev (TypeSafe) | api (`api.typesafe.ai/v1/systemone`, model `jev-latest`) | call | API docs read and live-tested 2026-10-20; used by the `triage` function. Supabase secret `TYPESAFE_API_KEY` pending (David) |
 | Embeddings | OpenRouter | api | call | key verified 2026-10-13; store as a Supabase secret in Phase 2 |
 | Hosting | Vercel | mcp | deploy | later (dashboard) |
 

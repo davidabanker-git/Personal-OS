@@ -4,6 +4,9 @@
 // Based on OB1 integrations/slack-capture. Changes: verifies Slack's request
 // signature (fails closed), covers two channels and tags the domain, dedups via
 // upsert_thought, acks within Slack's 3s window, and logs a capture event.
+// Triage (Phase 3): new captures are filed by the triage function and its line
+// becomes the reply. Thread replies go to triage first as possible feedback
+// ("yes", "personal"); only replies that aren't feedback are captured.
 //
 // Secrets: SLACK_SIGNING_SECRET, SLACK_BOT_TOKEN, OPENROUTER_API_KEY.
 // Deploy with verify_jwt off (Slack can't send a Supabase JWT; the signature is the auth).
@@ -110,6 +113,23 @@ async function replyInThread(channel: string, threadTs: string, text: string): P
   });
 }
 
+// Calls the triage function. Never throws: on any failure capture carries on
+// with its own confirmation.
+export async function callTriage(body: Record<string, unknown>): Promise<Record<string, any> | null> {
+  try {
+    const r = await fetch(`${SUPABASE_URL}/functions/v1/triage`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${SUPABASE_SERVICE_ROLE_KEY}`, "Content-Type": "application/json" },
+      body: JSON.stringify(body),
+      signal: AbortSignal.timeout(10_000),
+    });
+    return r.ok ? await r.json() : null;
+  } catch (err) {
+    console.error("triage call failed:", err);
+    return null;
+  }
+}
+
 function confirmation(meta: Record<string, unknown>): string {
   let text = `Captured as *${meta.type || "thought"}*`;
   if (Array.isArray(meta.topics) && meta.topics.length) text += ` · ${meta.topics.join(", ")}`;
@@ -123,6 +143,14 @@ function confirmation(meta: Record<string, unknown>): string {
 async function capture(text: string, channel: string, ts: string, threadTs?: string): Promise<void> {
   const domain = CHANNELS[channel];
   try {
+    if (threadTs) {
+      const fb = await callTriage({ action: "feedback", thread_ts: threadTs, text });
+      if (fb?.handled) {
+        await replyInThread(channel, threadTs, fb.reply ?? "✓");
+        return;
+      }
+    }
+
     const [embedding, extracted] = await Promise.all([getEmbedding(text), extractMetadata(text)]);
     const metadata = {
       ...extracted, source: "slack", domain, slack_channel: channel, slack_ts: ts,
@@ -146,7 +174,12 @@ async function capture(text: string, channel: string, ts: string, threadTs?: str
       thought_id: thoughtId,
       payload: { domain, channel, type: extracted.type ?? null, thread_ts: threadTs ?? null },
     });
-    await replyInThread(channel, threadTs ?? ts, threadTs ? "✓ Saved" : confirmation(extracted));
+    if (threadTs) {
+      await replyInThread(channel, threadTs, "✓ Saved");
+      return;
+    }
+    const tr = await callTriage({ action: "triage", thought_id: thoughtId, origin: "slack" });
+    await replyInThread(channel, ts, typeof tr?.reply === "string" ? tr.reply : confirmation(extracted));
   } catch (err) {
     console.error("capture failed:", err);
     // Best effort: neither of these may throw out of the background task.
