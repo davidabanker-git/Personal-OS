@@ -2,6 +2,8 @@
 
 Triage sorts every capture against this file. Keep it small. Add a category only when items keep landing without a home.
 
+**Mirrored in code:** `supabase/functions/triage/rules.ts` (`AREAS`, `PROJECTS`, `ITEM_TYPES`). Change both together. Triage also has an `unclear` area for captures too short or vague to file (for example "hmm").
+
 ## Domains
 
 - `keystone`: work at Keystone

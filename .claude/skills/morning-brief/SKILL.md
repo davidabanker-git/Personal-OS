@@ -7,7 +7,7 @@ description: Build David's weekday morning brief (one prioritized list with the 
 
 It replaces David's 30–60 minute planning sweep. He reads it on his phone at about 4:15 and should know his next move within a minute.
 
-**Autonomy: L1 (suggest).** Read everything; change nothing. The only write is one Slack post to `#personal`, which David approved (`decisions/log.md`, 2026-10-14). Don't send email, edit the calendar, change Linear, or post anywhere else.
+**Autonomy: L1 (suggest).** Read everything; change nothing. The only write is one Slack post to `#personal`, which David approved (`decisions/log.md`, 2026-10-14). It's sent as the Open Brain bot (step 4) so his phone gets notified. Don't send email, edit the calendar, change Linear, or post anywhere else.
 
 ## 1. Gather (read-only; skip any source that fails)
 
@@ -48,15 +48,15 @@ Morning brief · Wed, Oct 15 · Office day
 
 **Today**
 • 9:00 Ensemble standup (30m)
-• 12:30 Call with Austin Linney
+• 12:30 [Call with Austin Linney](<event htmlLink>)
 _Open for Keystone: 4:30–7:00_
 
 **Waiting on you**
-• Tommy Flynn: asked for a time to talk (email, 2 days)
-• DAV-12 Draft outreach list (due today)
+• [Tommy Flynn](https://mail.google.com/mail/u/0/#all/<threadId>): asked for a time to talk (2 days)
+• [DAV-12](https://linear.app/…/issue/DAV-12) Draft outreach list (due today)
 
 **Overnight**
-• 3 short-list contacts researched; openers in Gmail drafts
+• 3 short-list contacts researched; [openers in Gmail drafts](https://mail.google.com/mail/u/0/#drafts)
 
 **Look ahead**
 • Fri 3:00 interview: block 30 min of prep tomorrow morning
@@ -70,6 +70,7 @@ Rules:
 - Leave out any empty section. Three bullets at most per section.
 - **Look ahead** flags only events in the next 7 days that need prep, each with a concrete prep step and when to do it. Skip routine meetings.
 - Plain words. Don't show the machinery (no tool names, queries or counts).
+- Link every actionable item (see **Links** below).
 - Keep calendar titles short. Day-job meetings show as a title and a time only.
 - If a source failed, add one last line: `_Couldn't reach <Gmail>._`
 - Never quote anything that looks like a password, key, code or account number, even from David's own notes.
@@ -78,7 +79,26 @@ Rules:
 
 ## 4. Post
 
-Send it to Slack `#personal` (channel ID `C0C8Y3YFH8U`) as one message. If the post fails, stop. Don't retry in a loop, and don't post anywhere else.
+Post one message to `#personal` with the Open Brain **`post_to_slack`** tool (channel `personal`). It posts as the Open Brain bot, so Slack notifies David. If that tool is missing or fails, post with the Slack connector to `C0C8Y3YFH8U` instead. If both fail, stop.
+
+**End the run** with one line: `Posted: <permalink>`. The scheduled task's push and email notifications carry that line, so David can tap straight to the post.
+
+Don't retry in a loop, and don't post anywhere else.
+
+## Links (every item you can act on)
+
+Each item David might act on links to the place where he'd do it. Use standard markdown `[label](url)` on the item's key words, not bare URLs. These https links open the app on his iPhone and the browser on his PC.
+
+| Item | Link |
+|---|---|
+| Email thread | `https://mail.google.com/mail/u/0/#all/<threadId>` |
+| Gmail drafts | `https://mail.google.com/mail/u/0/#drafts` |
+| Calendar event | the event's `htmlLink` |
+| Linear issue | the issue's `url` |
+| Slack message | its permalink |
+| Repo file (e.g. an action item in the handoff) | `https://github.com/davidabanker-git/Personal-OS/blob/main/<path>` |
+
+Skip a link only when no real URL exists. Never invent one.
 
 ## Later (not in v1)
 

@@ -1,6 +1,6 @@
 # Session Handoff
 
-Last updated: 2026-10-15 (Phase 3 kickoff session). Read this first in a new session, then `AGENTS.md` and `docs/03-build-plan.md`.
+Last updated: 2026-10-20 (Phase 3 triage built). Read this first in a new session, then `AGENTS.md` and `docs/03-build-plan.md`.
 
 ## Where things stand
 
@@ -11,7 +11,7 @@ Last updated: 2026-10-15 (Phase 3 kickoff session). Read this first in a new ses
   - Interview done; results in `context/how-i-work.md`.
   - First real `automate-this` run is pending: short-list outreach, recommended.
 - **Morning brief (Phase 5, pulled forward):** skill `.claude/skills/morning-brief/` built Oct 14. A preview for Oct 15 was posted to `#personal`. `slack-capture` v6 skips OS posts (verified: the preview wasn't captured). Merged in [davidabanker-git/Personal-OS#4](https://github.com/davidabanker-git/Personal-OS/pull/4). The scheduled task "Morning brief" (`trig_01YYZoWF38bE9ugc72SWwkxe`, weekdays 3:47 am Central, fresh session per run) was created Oct 14 **without the repo or connectors**: a session can't pass connectors to a schedule here. David adds the repo and the Calendar, Gmail, Linear and Slack connectors in the claude.ai routine settings, then runs it once to test. **Oct 15 3:47 run:** fired, cloned the repo, found no connectors, posted nothing and stopped safely (about $0.25 of plan usage). **Fixed Oct 15:** David attached the four connectors and turned on notifications; a manual test run posted the brief to `#personal`. It runs in Auto mode (a classifier checks connector calls; no approval prompts).
-- **Evening reflection (Oct 15):** skill `.claude/skills/evening-reflection/` (prompt + process modes). Routines: "Evening reflection" weekdays 4:56 pm (`trig_018MvjaBArTEp6kCt9dRHsQh`, push on) and "Reflection processing" 8:45 pm silent (`trig_01TqQ1JqXm5uet5ApXJ8Pnz6`). Connectors for both (Slack, Gmail, Google Calendar, Linear, Open Brain) switched on by David Oct 15 and verified. **Next session: check the first runs** (`list_events` on each routine's last session) and David's reply in the thread. `slack-capture` v8 captures thread replies with ✓. Known limit: posts from the Slack connector appear as David, so Slack doesn't ping him; the 5 pm routine's push notification is the ping for now, and Phase 5d moves OS posts to the Open Brain bot.
+- **Evening reflection (Oct 15):** skill `.claude/skills/evening-reflection/` (prompt + process modes). Routines: "Evening reflection" weekdays 4:56 pm (`trig_018MvjaBArTEp6kCt9dRHsQh`, push on) and "Reflection processing" 8:45 pm silent (`trig_01TqQ1JqXm5uet5ApXJ8Pnz6`). Connectors for both (Slack, Gmail, Google Calendar, Linear, Open Brain) switched on by David Oct 15 and verified. **Checked Oct 20:** all three routines succeed on schedule. Oct 15 reflection processed; Oct 16 and Oct 19 prompts got no reply (logged as "Reflection skipped"), which is a friction signal for the reflection itself. `slack-capture` v8 captures thread replies with ✓. Known limit: posts from the Slack connector appear as David, so Slack doesn't ping him; the 5 pm routine's push notification is the ping for now, and Phase 5d moves OS posts to the Open Brain bot.
 - **Phase 5d Day coach** added to the build plan (check-ins before and after, feelings check, look-ahead, coaching, `checkins` data). The morning brief already has look-ahead.
 - **Phase 2:**
   - Supabase `personal-os` (ref `omotqffpafzzmwhezgki`): schema live (thoughts, CRM, ob-graph, events).
@@ -36,27 +36,27 @@ Last updated: 2026-10-15 (Phase 3 kickoff session). Read this first in a new ses
 7. **Decide the wiki model** (below). Recommendation: Nate's `wiki-compiler`. David wants a short talk-through soon; keep it queued.
 8. **Skills repo (queued, Oct 15):** David has an empty GitHub repo `Skills` to share skills across his whole harness and projects, plus local skills to port and new ones to create. Design how projects consume it (e.g. submodule, sync, or plugin) after the harness is built.
 
-## Next build: Phase 3, Jev triage (kickoff notes)
+## Phase 3: Jev triage (built Oct 20, waiting to go live)
 
-David asked on Oct 15 to start Phase 3 now, in a fresh session. Spec: `docs/03-build-plan.md` → Phase 3; categories: `context/taxonomy.md`; thresholds: `AGENTS.md` → Triage.
+David picked **Option A (instant)** on Oct 20. How it works: `docs/learn/triage.md`.
 
-**Oct 15 session status:**
-- Jev API docs read (`docs.typesafe.ai`, OpenAPI at `api.typesafe.ai/openapi.json`). One endpoint, `POST /v1/systemone`: `{model, state, questions}`. Question types `noul` (yes/no → probability), `choice` (criteria map → choice + confidence + probabilities), `score` (ordered rubric → expected score + confidence). Models: `jev-latest` (served as `jev-1.13.0`), `jev-preview`. A 4-question triage call used about 550 input tokens and returned correct answers.
-- Options put to David: **A** instant `triage` edge function (recommended) vs. **B** batch routine. **Waiting on his pick.**
-- Evening reflection first runs (4:56 pm, 8:45 pm Oct 15) happen after this session started; still to check.
+**Built (branch `claude/phase3-triage`, PR open, code, so it waits on David's OK):**
+- New `supabase/functions/triage/`: `decide.ts` (Jev, with an OpenRouter fallback that never auto-files), `rules.ts` (taxonomy, questions, thresholds, reply text, feedback), `index.ts` (actions `triage` and `feedback`, Linear tasks, `events` logging), and `rules_test.ts` (11 passing).
+- `slack-capture`: a new capture gets the triage line as its single reply. A thread reply goes to triage first as feedback; only non-feedback replies are captured.
+- `open-brain-mcp`: one documented local change. `capture_thought` calls triage and appends the line. If unsure, the bot asks in `#personal`, and holds the question during quiet hours.
+- Auth: callers send the service role key; no new auth secret. Deploy `triage` with `verify_jwt` off.
+- Calibrated live against `jev-latest` (12 captures + 11 feedback replies, all correct after wording fixes).
 
-**First, before building:**
-1. Check the first evening reflection runs (Oct 15: 4:56 pm and 8:45 pm) and David's thread reply. Fix the skill if needed.
-2. Read Jev's current API docs (TypeSafe, `api.typesafe.ai/v1/systemone`; early access). Don't build from memory.
+**To go live (in order):**
+1. David OKs the merge. Then deploy `triage`, `slack-capture` and `open-brain-mcp` (each deploy prompts David). Deploy `open-brain-mcp` **before** the next brief, or the skills fall back to posting as David. Safe in any order: without the key, triage skips and capture behaves as before.
+2. David adds Supabase secrets `TYPESAFE_API_KEY` (a new TypeSafe key, `personal-os-supabase`) and `LINEAR_API_KEY` (a Linear personal API key). Both are phone steps. **In progress Oct 20:** David is creating both keys. The TypeSafe key in the Claude cloud environment works only inside Claude sessions; Supabase needs its own.
+3. Smoke test: post one clear and one ambiguous line in `#keystone`, reply "personal" to the second, and check `events` (`triage`, `correction`).
+4. One week of real captures, then measure: auto-filed and not corrected ≥ 70%. Tune `THRESHOLDS` once.
 
-**Design to propose (one or two options, recommend one):**
-- **A decision interface:** `decide(question, options) → {answer, confidence}`. Jev first, with a cheap OpenRouter model as fallback, so the model can be swapped (`docs/02-reference-systems.md` §4).
-- **Where it runs (Lane B):** a `triage` edge function called on every new thought (database webhook or `pg_net` on `thoughts` insert), so Slack *and* Claude/ChatGPT captures are all triaged. Skip OS posts and thread replies to check-ins.
-- **Questions per capture:** actionable? domain/area/project? person involved? needs David's decision? urgency?
-- **Confidence routing:** high → auto-file (metadata, plus a Linear task when actionable); medium → approval (a one-tap thread reply from the bot, plus a Linear "Needs me" view); low → ask in the thread. Log every decision and correction to `events`. Corrections come from David's thread replies ("no, personal").
-- **David's one-time setup:** a new TypeSafe key (`personal-os-supabase`) as the Supabase secret `TYPESAFE_API_KEY`; and probably a Linear API key (`LINEAR_API_KEY`) for the function to create tasks. Ask first and give phone-friendly steps.
+**Also in this PR (Oct 20): OS posts come from the Open Brain bot.** A new Open Brain tool, `post_to_slack` (channels `personal` and `keystone` only), posts as the bot so Slack notifies David; posts made through the connector appear as him and don't. The `morning-brief` and `evening-reflection` skills use it, falling back to the Slack connector if it fails, and they link every actionable item (Gmail thread, Calendar event, Linear issue, Slack permalink). Each run ends with `Posted: <permalink>`, so the push and email notifications link straight to the post.
+- **David, one time:** (a) in Slack, set `#personal` notifications to **All new messages** (bot posts are the only other poster there); (b) turn on **email** for the "Evening reflection" scheduled task in its claude.ai settings (the morning brief already emails). Agents can't change notification settings on an existing scheduled task, and recreating it would drop its connectors.
 
-**Done when:** after one week of real captures, at least 70% are auto-filed correctly. Thresholds are tuned once.
+**Follow-ups (not built):** surface unanswered triage questions in the morning brief; a Linear "Needs me" view; an Open Brain MCP tool for corrections from Claude/ChatGPT.
 
 ## Data sources
 
