@@ -202,3 +202,9 @@ Approved for read access alongside personal Drive. Needs setup.
 **What:** briefs and reflections post as the Open Brain bot (new `post_to_slack` tool), not through the Slack connector. Every actionable item links to where it gets done (email, calendar event, Linear issue, Slack thread), and each run's notification links to the post. Email notifications on for the evening reflection.
 
 **Why:** connector posts appear as me, so Slack never pinged me. That's the likely reason the Oct 16 and Oct 19 reflections went unanswered. Links make each item one tap away on phone or desktop.
+
+## 2026-10-20: Clickable links, always
+
+**What:** every reply, brief and post links each actionable item to where it gets done. URLs are never invented.
+
+**Why:** one tap to act, on phone or desktop. Hunting for the right place is friction.
