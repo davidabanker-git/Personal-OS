@@ -36,25 +36,26 @@ Last updated: 2026-10-20 (Phase 3 triage built). Read this first in a new sessio
 7. **Decide the wiki model** (below). Recommendation: Nate's `wiki-compiler`. David wants a short talk-through soon; keep it queued.
 8. **Skills repo (queued, Oct 15):** David has an empty GitHub repo `Skills` to share skills across his whole harness and projects, plus local skills to port and new ones to create. Design how projects consume it (e.g. submodule, sync, or plugin) after the harness is built.
 
-## Phase 3: Jev triage (built Oct 20, waiting to go live)
+## Phase 3: Jev triage (live Oct 20)
 
 David picked **Option A (instant)** on Oct 20. How it works: `docs/learn/triage.md`.
 
-**Built (branch `claude/phase3-triage`, PR open, code, so it waits on David's OK):**
+**Built and merged ([#12](https://github.com/davidabanker-git/Personal-OS/pull/12)); deployed Oct 20: `triage` v1, `slack-capture` v11, `open-brain-mcp` v9.**
 - New `supabase/functions/triage/`: `decide.ts` (Jev, with an OpenRouter fallback that never auto-files), `rules.ts` (taxonomy, questions, thresholds, reply text, feedback), `index.ts` (actions `triage` and `feedback`, Linear tasks, `events` logging), and `rules_test.ts` (11 passing).
 - `slack-capture`: a new capture gets the triage line as its single reply. A thread reply goes to triage first as feedback; only non-feedback replies are captured.
 - `open-brain-mcp`: one documented local change. `capture_thought` calls triage and appends the line. If unsure, the bot asks in `#personal`, and holds the question during quiet hours.
 - Auth: callers send the service role key; no new auth secret. Deploy `triage` with `verify_jwt` off.
 - Calibrated live against `jev-latest` (12 captures + 11 feedback replies, all correct after wording fixes).
 
-**To go live (in order):**
-1. David OKs the merge. Then deploy `triage`, `slack-capture` and `open-brain-mcp` (each deploy prompts David). Deploy `open-brain-mcp` **before** the next brief, or the skills fall back to posting as David. Safe in any order: without the key, triage skips and capture behaves as before.
-2. David adds Supabase secrets `TYPESAFE_API_KEY` (a new TypeSafe key, `personal-os-supabase`) and `LINEAR_API_KEY` (a Linear personal API key). Both are phone steps. **In progress Oct 20:** David is creating both keys. The TypeSafe key in the Claude cloud environment works only inside Claude sessions; Supabase needs its own.
-3. Smoke test: post one clear and one ambiguous line in `#keystone`, reply "personal" to the second, and check `events` (`triage`, `correction`).
-4. One week of real captures, then measure: auto-filed and not corrected ≥ 70%. Tune `THRESHOLDS` once.
+**Live status (Oct 20):**
+- Secrets `TYPESAFE_API_KEY` and `LINEAR_API_KEY` set by David in Supabase.
+- Smoke test passed in `#keystone`: "Remember to ask David Lai about Spine access" → *confirm* (0.70) → "yes" → **DAV-5** created; "voice-note-to-CRM idea" → *ask* (0.44, area) → "sales" → corrected to Sales & process mapping. `events` holds `capture`, `triage`, `task`, `approval`, `correction` rows.
+- Not yet verified: `post_to_slack` (this session's tool list predates the deploy). **First real test: tomorrow's 3:47 am morning brief**; check it posted as Open Brain and ended with `Posted: <permalink>`.
+- **Next:** one week of real captures, then measure (auto-filed and not corrected ≥ 70%) and tune `THRESHOLDS` once (around Oct 27).
+- Gotcha: `open-brain-mcp` deploys need `import_map_path: "deno.json"`, or the deploy fails on a stale import-map path.
 
 **Also in this PR (Oct 20): OS posts come from the Open Brain bot.** A new Open Brain tool, `post_to_slack` (channels `personal` and `keystone` only), posts as the bot so Slack notifies David; posts made through the connector appear as him and don't. The `morning-brief` and `evening-reflection` skills use it, falling back to the Slack connector if it fails, and they link every actionable item (Gmail thread, Calendar event, Linear issue, Slack permalink). Each run ends with `Posted: <permalink>`, so the push and email notifications link straight to the post.
-- **David, one time:** (a) in Slack, set `#personal` notifications to **All new messages** (bot posts are the only other poster there); (b) turn on **email** for the "Evening reflection" scheduled task in its claude.ai settings (the morning brief already emails). Agents can't change notification settings on an existing scheduled task, and recreating it would drop its connectors.
+- **David, one time:** (a) ~~set `#personal` notifications to All new messages~~ **done Oct 20**; (b) turn on **email** for the "Evening reflection" scheduled task in its claude.ai settings (the morning brief already emails). Agents can't change notification settings on an existing scheduled task, and `create_trigger` can't attach connectors in this org, so recreating it isn't an option.
 
 **Follow-ups (not built):** surface unanswered triage questions in the morning brief; a Linear "Needs me" view; an Open Brain MCP tool for corrections from Claude/ChatGPT.
 
@@ -97,6 +98,7 @@ Two patterns. They differ on what is canonical.
 - **The sandbox can't reach `*.supabase.co`.** Verify live endpoints with Firecrawl scrape (no secrets in the URL).
 - **Writing secrets is blocked by a permission check.** David enters them in the dashboard.
 - **Read-only Supabase allow list is live:** David committed `.claude/settings.json` to `main` on Oct 15. `execute_sql`, migrations, deploys and secrets still prompt.
+- **`create_trigger` can't attach connectors in this org.** Never recreate a scheduled task to change a setting; David edits it in claude.ai.
 - **Every Supabase MCP call asks David to approve it.** If one times out after 60s, an approval is waiting on David's screen; it's not a bug. Don't retry. Put checks into one query, and keep Supabase calls to a minimum.
 - **Deno isn't preinstalled.** Install it with `npm i deno@2` in the scratchpad, then use `deno check` and a local run to test functions.
 - **Local Postgres 16 + pgvector** works for migration tests. Use `/var/lib/postgresql/<dir>`, since the scratchpad path is too long for the socket.
