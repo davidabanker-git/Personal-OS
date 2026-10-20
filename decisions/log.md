@@ -196,3 +196,9 @@ Approved for read access alongside personal Drive. Needs setup.
 **What:** a `triage` edge function files every capture within seconds, using Jev. High confidence auto-files (plus a Linear task when actionable); medium asks "Right?"; low asks one question. Thread replies correct it.
 
 **Why:** a wrong label fixed by a one-word reply while the thought is fresh is low friction; a batch of stale labels to fix later is the kind of chore that gets skipped. It also keeps triage off the Claude plan (Jev costs pennies).
+
+## 2026-10-20: OS posts come from the Open Brain bot, with links
+
+**What:** briefs and reflections post as the Open Brain bot (new `post_to_slack` tool), not through the Slack connector. Every actionable item links to where it gets done (email, calendar event, Linear issue, Slack thread), and each run's notification links to the post. Email notifications on for the evening reflection.
+
+**Why:** connector posts appear as me, so Slack never pinged me. That's the likely reason the Oct 16 and Oct 19 reflections went unanswered. Links make each item one tap away on phone or desktop.

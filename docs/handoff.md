@@ -48,10 +48,13 @@ David picked **Option A (instant)** on Oct 20. How it works: `docs/learn/triage.
 - Calibrated live against `jev-latest` (12 captures + 11 feedback replies, all correct after wording fixes).
 
 **To go live (in order):**
-1. David OKs the merge. Then deploy `triage`, `slack-capture` and `open-brain-mcp` (each deploy prompts David). Safe in any order: without the key, triage skips and capture behaves as before.
-2. David adds Supabase secrets `TYPESAFE_API_KEY` (a new TypeSafe key, `personal-os-supabase`) and `LINEAR_API_KEY` (a Linear personal API key). Both are phone steps.
+1. David OKs the merge. Then deploy `triage`, `slack-capture` and `open-brain-mcp` (each deploy prompts David). Deploy `open-brain-mcp` **before** the next brief, or the skills fall back to posting as David. Safe in any order: without the key, triage skips and capture behaves as before.
+2. David adds Supabase secrets `TYPESAFE_API_KEY` (a new TypeSafe key, `personal-os-supabase`) and `LINEAR_API_KEY` (a Linear personal API key). Both are phone steps. **In progress Oct 20:** David is creating both keys. The TypeSafe key in the Claude cloud environment works only inside Claude sessions; Supabase needs its own.
 3. Smoke test: post one clear and one ambiguous line in `#keystone`, reply "personal" to the second, and check `events` (`triage`, `correction`).
 4. One week of real captures, then measure: auto-filed and not corrected ≥ 70%. Tune `THRESHOLDS` once.
+
+**Also in this PR (Oct 20): OS posts come from the Open Brain bot.** A new Open Brain tool, `post_to_slack` (channels `personal` and `keystone` only), posts as the bot so Slack notifies David; posts made through the connector appear as him and don't. The `morning-brief` and `evening-reflection` skills use it, falling back to the Slack connector if it fails, and they link every actionable item (Gmail thread, Calendar event, Linear issue, Slack permalink). Each run ends with `Posted: <permalink>`, so the push and email notifications link straight to the post.
+- **David, one time:** (a) in Slack, set `#personal` notifications to **All new messages** (bot posts are the only other poster there); (b) turn on **email** for the "Evening reflection" scheduled task in its claude.ai settings (the morning brief already emails). Agents can't change notification settings on an existing scheduled task, and recreating it would drop its connectors.
 
 **Follow-ups (not built):** surface unanswered triage questions in the morning brief; a Linear "Needs me" view; an Open Brain MCP tool for corrections from Claude/ChatGPT.
 

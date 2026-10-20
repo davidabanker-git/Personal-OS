@@ -1,6 +1,8 @@
 // Vendored from OB1 server/index.ts (NateBJones-Projects/OB1 @ 238df6c, 2026-09-10).
-// One local change (2026-10-20, Phase 3): capture_thought calls the triage
-// function after saving and appends its filing line. Search "triage" to find it.
+// Local changes (2026-10-20). Search "Local change" to find them:
+// 1. capture_thought calls the triage function after saving (Phase 3).
+// 2. New post_to_slack tool: OS posts (briefs, reflections) come from the Open
+//    Brain bot, so Slack notifies David. Connector posts appear as him and don't.
 // Auth: requests need ?key= or x-brain-key matching the MCP_ACCESS_KEY secret; deploy with verify_jwt off.
 
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
@@ -15,6 +17,10 @@ const SUPABASE_URL = Deno.env.get("SUPABASE_URL")!;
 const SUPABASE_SERVICE_ROLE_KEY = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
 const OPENROUTER_API_KEY = Deno.env.get("OPENROUTER_API_KEY")!;
 const MCP_ACCESS_KEY = Deno.env.get("MCP_ACCESS_KEY")!;
+
+const SLACK_BOT_TOKEN = Deno.env.get("SLACK_BOT_TOKEN") ?? "";
+// Local change: the only channels post_to_slack may use (IDs aren't secret).
+const SLACK_CHANNELS = { personal: "C0C8Y3YFH8U", keystone: "C0C8WB86HPB" } as const;
 
 const OPENROUTER_BASE = "https://openrouter.ai/api/v1";
 const supabase = createClient(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY);
@@ -48,7 +54,7 @@ function thoughtUrl(id: string): string {
   return `${CITATION_BASE_URL.replace(/\/$/, "")}/${id}`;
 }
 
-// Local change: files the capture via the triage function. Returns its line
+// Local change 1: files the capture via the triage function. Returns its line
 // ("✓ Keystone · …" or a question, which is also posted to Slack), or null.
 async function triageCapture(thoughtId: string): Promise<string | null> {
   try {
@@ -527,6 +533,59 @@ function buildServer(): McpServer {
           content: [{ type: "text" as const, text: `Error: ${(err as Error).message}` }],
           isError: true,
         };
+      }
+    }
+  );
+
+  // Local change: post as the Open Brain bot, so Slack notifies David.
+  server.registerTool(
+    "post_to_slack",
+    {
+      title: "Post to Slack as Open Brain",
+      description:
+        "Post one message to David's Slack #personal or #keystone as the Open Brain bot. Use it for OS posts (morning brief, evening reflection) so Slack notifies him; posts made through the Slack connector appear as David and don't notify. Standard markdown, including [label](url) links. Returns the message link.",
+      annotations: {
+        readOnlyHint: false,
+        openWorldHint: true,
+        destructiveHint: false,
+        idempotentHint: false,
+      },
+      inputSchema: {
+        text: z.string().min(1).max(11000).describe("The message, in standard markdown"),
+        channel: z.enum(["personal", "keystone"]).default("personal").describe("Which channel"),
+        thread_ts: z.string().optional().describe("Reply in this thread instead of posting a new message"),
+      },
+    },
+    async ({ text, channel, thread_ts }) => {
+      if (!SLACK_BOT_TOKEN) {
+        return { content: [{ type: "text" as const, text: "Slack bot token not configured" }], isError: true };
+      }
+      const channelId = SLACK_CHANNELS[channel ?? "personal"];
+      const slack = async (method: string, body: Record<string, unknown>) => {
+        const r = await fetch(`https://slack.com/api/${method}`, {
+          method: "POST",
+          headers: { Authorization: `Bearer ${SLACK_BOT_TOKEN}`, "Content-Type": "application/json; charset=utf-8" },
+          body: JSON.stringify(body),
+        });
+        return await r.json();
+      };
+      try {
+        const base = { channel: channelId, ...(thread_ts ? { thread_ts } : {}), unfurl_links: false };
+        // markdown_text renders standard markdown; plain text is the fallback.
+        let d = await slack("chat.postMessage", { ...base, markdown_text: text });
+        if (!d.ok) d = await slack("chat.postMessage", { ...base, text });
+        if (!d.ok) {
+          return { content: [{ type: "text" as const, text: `Slack error: ${d.error}` }], isError: true };
+        }
+        const link = await slack("chat.getPermalink", { channel: channelId, message_ts: d.ts });
+        return {
+          content: [{
+            type: "text" as const,
+            text: JSON.stringify({ ok: true, ts: d.ts, channel: channelId, permalink: link.ok ? link.permalink : null }),
+          }],
+        };
+      } catch (err: unknown) {
+        return { content: [{ type: "text" as const, text: `Error: ${(err as Error).message}` }], isError: true };
       }
     }
   );

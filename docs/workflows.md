@@ -20,7 +20,7 @@ Every part runs in the cloud. No step depends on my PC, a desktop app or a local
 1. **Skill (the what).** All logic lives in `.claude/skills/<name>/SKILL.md`. It's portable: Codex or another model can run the same file.
 2. **Routine (the when).** A schedule or trigger plus a thin prompt: "Run skill `<name>`, follow it exactly, boundaries: …". No logic in the prompt, so the orchestrator can be swapped.
 3. **Access (with what).** The repo and the connectors the skill needs, attached **once per routine by me** in the claude.ai routine settings (agents can't grant account access to themselves). Read-only tools go in the `.claude/settings.json` allow list.
-4. **Output (where it lands).** Slack for anything I read or approve; Linear for work; the Brain for memory. OS posts start with a known header (`Morning brief`, `Evening reflection`, `Weekly review`, …) so Slack capture skips them. Add new headers to `OS_POST_HEADERS` in `supabase/functions/slack-capture/index.ts`.
+4. **Output (where it lands).** Slack for anything I read or approve, posted as the Open Brain bot with the Open Brain `post_to_slack` tool so it notifies me, and with links to where each item gets done; Linear for work; the Brain for memory. OS posts start with a known header (`Morning brief`, `Evening reflection`, `Weekly review`, …) so Slack capture skips them. Add new headers to `OS_POST_HEADERS` in `supabase/functions/slack-capture/index.ts`.
 5. **Receipt (proof it ran).** The run is visible: a post, a Linear receipt, or an event. A failed run must reach me: turn on push notifications for the routine, and the next brief reports any failed run.
 
 ## Adding a workflow (checklist)
